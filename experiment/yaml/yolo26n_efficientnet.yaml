@@ -1,0 +1,37 @@
+# Six-class YOLO26 detector with an ImageNet-pretrained EfficientNet-B0 backbone.
+# torchvision feature indices verified locally:
+# index 4 = P3/8 (40 channels), index 6 = P4/16 (112 channels),
+# index 9 = P5/32 (1280 channels).
+
+nc: 6
+end2end: true
+reg_max: 1
+
+backbone:
+  # [from, repeats, module, args]
+  - [-1, 1, TorchVision, [1280, efficientnet_b0, DEFAULT, true, 2, true]]
+  - [0, 1, Index, [40, 4]]       # P3/8
+  - [0, 1, Index, [112, 6]]      # P4/16
+  - [0, 1, Index, [1280, 9]]     # P5/32
+
+head:
+  - [3, 1, SPPF, [512, 5, 3, true]]
+  - [-1, 2, C2PSA, [512]]
+
+  - [-1, 1, nn.Upsample, [null, 2, nearest]]
+  - [[-1, 2], 1, Concat, [1]]
+  - [-1, 2, C3k2, [256, true]]
+
+  - [-1, 1, nn.Upsample, [null, 2, nearest]]
+  - [[-1, 1], 1, Concat, [1]]
+  - [-1, 2, C3k2, [128, true]]   # P3/8 small
+
+  - [-1, 1, Conv, [256, 3, 2]]
+  - [[-1, 8], 1, Concat, [1]]
+  - [-1, 2, C3k2, [256, true]]   # P4/16 medium
+
+  - [-1, 1, Conv, [512, 3, 2]]
+  - [[-1, 5], 1, Concat, [1]]
+  - [-1, 1, C3k2, [512, true, 0.5, true]]  # P5/32 large
+
+  - [[11, 14, 17], 1, Detect, [nc]]

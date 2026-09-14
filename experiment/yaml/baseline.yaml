@@ -1,0 +1,26 @@
+experiment: baseline
+description: Six-class YOLO trained on the balanced real/Gazebo v3 dataset.
+model: yolo26n.pt
+data: /home/johny/durian_ws/experiment/yaml/baseline_data.yaml
+expected_classes:
+  - leaf_algal
+  - leaf_blight
+  - leaf_colletotrichum
+  - leaf_healthy
+  - leaf_phomopsis
+  - leaf_rhizoctonia
+output: /home/johny/durian_ws/models/durian_leaf/baseline.pt
+project: /home/johny/durian_ws/experiment/outputs/training_model
+run_name: baseline
+train:
+  epochs: 120
+  imgsz: 1280
+  batch: -1
+  device: "0"
+  workers: 4
+  patience: 25
+  close_mosaic: 15
+  seed: 20260915
+evaluations:
+  real: /home/johny/durian_ws/hybrid_datasets/hybrid_v3_clean/evaluation/real_test.yaml
+  gazebo: /home/johny/durian_ws/hybrid_datasets/hybrid_v3_clean/evaluation/gazebo_test.yaml

@@ -1,0 +1,25 @@
+experiment: original
+description: Six-class YOLO trained only on clean Gazebo v3 images.
+model: yolo26n.pt
+data: /home/johny/durian_ws/experiment/yaml/original_data.yaml
+expected_classes:
+  - leaf_algal
+  - leaf_blight
+  - leaf_colletotrichum
+  - leaf_healthy
+  - leaf_phomopsis
+  - leaf_rhizoctonia
+output: /home/johny/durian_ws/models/durian_leaf/original.pt
+project: /home/johny/durian_ws/experiment/outputs/training_model
+run_name: original
+train:
+  epochs: 120
+  imgsz: 1280
+  batch: -1
+  device: "0"
+  workers: 4
+  patience: 25
+  close_mosaic: 15
+  seed: 20260915
+evaluations:
+  gazebo: /home/johny/durian_ws/experiment/yaml/original_data.yaml

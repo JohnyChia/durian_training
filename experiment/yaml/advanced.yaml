@@ -1,0 +1,26 @@
+experiment: advanced
+description: Six-class YOLO26 detector with an ImageNet-pretrained EfficientNet-B0 backbone.
+model: /home/johny/durian_ws/experiment/yaml/yolo26n_efficientnet.yaml
+data: /home/johny/durian_ws/experiment/yaml/baseline_data.yaml
+expected_classes:
+  - leaf_algal
+  - leaf_blight
+  - leaf_colletotrichum
+  - leaf_healthy
+  - leaf_phomopsis
+  - leaf_rhizoctonia
+output: /home/johny/durian_ws/models/durian_leaf/advanced.pt
+project: /home/johny/durian_ws/experiment/outputs/training_model
+run_name: advanced
+train:
+  epochs: 120
+  imgsz: 1280
+  batch: -1
+  device: "0"
+  workers: 4
+  patience: 25
+  close_mosaic: 15
+  seed: 20260915
+evaluations:
+  real: /home/johny/durian_ws/hybrid_datasets/hybrid_v3_clean/evaluation/real_test.yaml
+  gazebo: /home/johny/durian_ws/hybrid_datasets/hybrid_v3_clean/evaluation/gazebo_test.yaml

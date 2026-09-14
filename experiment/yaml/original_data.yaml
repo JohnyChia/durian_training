@@ -1,0 +1,11 @@
+path: /home/johny/durian_ws/hybrid_datasets/hybrid_v3_clean/gazebo
+train: images/train
+val: images/val
+test: images/test
+names:
+  0: leaf_algal
+  1: leaf_blight
+  2: leaf_colletotrichum
+  3: leaf_healthy
+  4: leaf_phomopsis
+  5: leaf_rhizoctonia
