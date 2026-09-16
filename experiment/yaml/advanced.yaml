@@ -3,6 +3,7 @@ description: Six-class YOLO26 detector with an ImageNet-pretrained EfficientNet-
   backbone.
 model: /home/johny/durian_ws/experiment/yaml/yolo26n_efficientnet.yaml
 pretrained_detector: yolo26n.pt
+imagenet_normalize: true
 data: /home/johny/durian_ws/experiment/yaml/baseline_data.yaml
 expected_classes:
 - leaf_algal
@@ -40,5 +41,5 @@ train:
   erasing: 0.0
   amp: true
 evaluations:
-  real: /home/johny/durian_ws/dataset/hybrid_v3_clean/evaluation/real_test.yaml
-  gazebo: /home/johny/durian_ws/dataset/hybrid_v3_clean/evaluation/gazebo_test.yaml
+  real: /home/johny/durian_ws/hybrid_datasets/hybrid_v3_clean/evaluation/real_test.yaml
+  gazebo: /home/johny/durian_ws/hybrid_datasets/hybrid_v3_clean/evaluation/gazebo_test.yaml

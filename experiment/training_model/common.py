@@ -79,6 +79,83 @@ def json_metrics(metrics) -> dict:
 
 
 
+
+def _apply_efficientnet_imagenet_normalization(model):
+    """
+    Apply ImageNet normalization only to the Advanced EfficientNet-B0 backbone.
+
+    Ultralytics supplies RGB tensors scaled to [0, 1], while torchvision
+    EfficientNet-B0 DEFAULT weights expect:
+        mean = [0.485, 0.456, 0.406]
+        std  = [0.229, 0.224, 0.225]
+
+    The patch is attached only to model.model[0] (TorchVision backbone), so
+    Original/Baseline and the YOLO26 neck/head are unaffected.
+    """
+    import types
+
+    backbone = model.model.model[0]
+
+    if backbone.__class__.__name__ != "TorchVision":
+        raise RuntimeError(
+            "ImageNet normalization requested, but model layer 0 is "
+            f"{backbone.__class__.__name__}, not TorchVision"
+        )
+
+    if getattr(backbone, "_imagenet_normalization_enabled", False):
+        print("ImageNet normalization already enabled.")
+        return
+
+    mean = torch.tensor(
+        [0.485, 0.456, 0.406],
+        dtype=torch.float32,
+    ).view(1, 3, 1, 1)
+
+    std = torch.tensor(
+        [0.229, 0.224, 0.225],
+        dtype=torch.float32,
+    ).view(1, 3, 1, 1)
+
+    backbone.register_buffer(
+        "_imagenet_mean",
+        mean,
+        persistent=False,
+    )
+    backbone.register_buffer(
+        "_imagenet_std",
+        std,
+        persistent=False,
+    )
+
+    original_forward = backbone.forward
+
+    def normalized_forward(self, x):
+        mean_t = self._imagenet_mean.to(
+            device=x.device,
+            dtype=x.dtype,
+        )
+        std_t = self._imagenet_std.to(
+            device=x.device,
+            dtype=x.dtype,
+        )
+
+        x = (x - mean_t) / std_t
+        return original_forward(x)
+
+    backbone.forward = types.MethodType(
+        normalized_forward,
+        backbone,
+    )
+    backbone._imagenet_normalization_enabled = True
+
+    print("\n===== EFFICIENTNET INPUT NORMALIZATION =====")
+    print("Input range       : Ultralytics RGB [0, 1]")
+    print("Mean              : [0.485, 0.456, 0.406]")
+    print("Std               : [0.229, 0.224, 0.225]")
+    print("Backbone layer    : model.model[0]")
+    print("NORMALIZATION GATE: PASS")
+
+
 def _apply_semantic_yolo26_transfer(model, source_weights):
     """
     Transfer semantically corresponding YOLO26 detector weights into the
@@ -272,6 +349,9 @@ def train_yolo_experiment(config: dict, overwrite: bool, check_only: bool):
     require_device(str(train["device"]))
     seed_everything(int(train["seed"]))
     model = YOLO(config["model"])
+
+    if config.get("imagenet_normalize", False):
+        _apply_efficientnet_imagenet_normalization(model)
 
     pretrained_detector = config.get("pretrained_detector")
     if pretrained_detector:
