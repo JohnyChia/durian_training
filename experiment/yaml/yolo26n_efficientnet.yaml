@@ -1,37 +1,46 @@
-# Six-class YOLO26 detector with an ImageNet-pretrained EfficientNet-B0 backbone.
-# torchvision feature indices verified locally:
-# index 4 = P3/8 (40 channels), index 6 = P4/16 (112 channels),
-# index 9 = P5/32 (1280 channels).
+# Advanced V2 — EfficientNet-B0 + lightweight YOLO26 detection neck
+# EfficientNet feature indices:
+# P3/8  = index 4 = 40 channels
+# P4/16 = index 6 = 112 channels
+# P5/32 = index 9 = 1280 channels
 
 nc: 6
 end2end: true
 reg_max: 1
 
 backbone:
-  # [from, repeats, module, args]
   - [-1, 1, TorchVision, [1280, efficientnet_b0, DEFAULT, true, 2, true]]
-  - [0, 1, Index, [40, 4]]       # P3/8
-  - [0, 1, Index, [112, 6]]      # P4/16
-  - [0, 1, Index, [1280, 9]]     # P5/32
+  - [0, 1, Index, [40, 4]]       # 1 raw P3/8
+  - [0, 1, Index, [112, 6]]      # 2 raw P4/16
+  - [0, 1, Index, [1280, 9]]     # 3 raw P5/32
+
+  # Channel adapters
+  - [1, 1, Conv, [64, 1, 1]]     # 4 adapted P3/8
+  - [2, 1, Conv, [128, 1, 1]]    # 5 adapted P4/16
+  - [3, 1, Conv, [256, 1, 1]]    # 6 adapted P5/32
 
 head:
-  - [3, 1, SPPF, [512, 5, 3, true]]
-  - [-1, 2, C2PSA, [512]]
+  # P5
+  - [6, 1, SPPF, [256, 5]]       # 7
 
-  - [-1, 1, nn.Upsample, [null, 2, nearest]]
-  - [[-1, 2], 1, Concat, [1]]
-  - [-1, 2, C3k2, [256, true]]
+  # Top-down: P5 -> P4
+  - [-1, 1, nn.Upsample, [null, 2, nearest]]  # 8
+  - [[-1, 5], 1, Concat, [1]]                 # 9
+  - [-1, 1, C3k2, [128, true]]                # 10
 
-  - [-1, 1, nn.Upsample, [null, 2, nearest]]
-  - [[-1, 1], 1, Concat, [1]]
-  - [-1, 2, C3k2, [128, true]]   # P3/8 small
+  # Top-down: P4 -> P3
+  - [-1, 1, nn.Upsample, [null, 2, nearest]]  # 11
+  - [[-1, 4], 1, Concat, [1]]                 # 12
+  - [-1, 1, C3k2, [64, true]]                 # 13 P3/8
 
-  - [-1, 1, Conv, [256, 3, 2]]
-  - [[-1, 8], 1, Concat, [1]]
-  - [-1, 2, C3k2, [256, true]]   # P4/16 medium
+  # Bottom-up: P3 -> P4
+  - [-1, 1, Conv, [128, 3, 2]]                 # 14
+  - [[-1, 10], 1, Concat, [1]]                 # 15
+  - [-1, 1, C3k2, [128, true]]                 # 16 P4/16
 
-  - [-1, 1, Conv, [512, 3, 2]]
-  - [[-1, 5], 1, Concat, [1]]
-  - [-1, 1, C3k2, [512, true, 0.5, true]]  # P5/32 large
+  # Bottom-up: P4 -> P5
+  - [-1, 1, Conv, [256, 3, 2]]                 # 17
+  - [[-1, 7], 1, Concat, [1]]                  # 18
+  - [-1, 1, C3k2, [256, true]]                 # 19 P5/32
 
-  - [[11, 14, 17], 1, Detect, [nc]]
+  - [[13, 16, 19], 1, Detect, [nc]]

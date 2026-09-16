@@ -15,7 +15,6 @@ import yaml
 from ultralytics import YOLO
 from ultralytics.data.utils import check_det_dataset
 
-
 WORKSPACE = Path("/home/johny/durian_ws")
 EXPECTED_DISEASE_CLASSES = [
     "leaf_algal",
@@ -117,20 +116,47 @@ def train_yolo_experiment(config: dict, overwrite: bool, check_only: bool):
     require_device(str(train["device"]))
     seed_everything(int(train["seed"]))
     model = YOLO(config["model"])
-    model.train(
-        data=str(data.resolve()),
-        epochs=int(train["epochs"]),
-        imgsz=int(train["imgsz"]),
-        batch=train["batch"],
-        device=str(train["device"]),
-        workers=int(train["workers"]),
-        patience=int(train["patience"]),
-        close_mosaic=int(train["close_mosaic"]),
-        project=str(Path(config["project"]).resolve()),
-        name=config["run_name"],
-        seed=int(train["seed"]),
-        deterministic=True,
+
+    train_args = {
+        "data": str(data.resolve()),
+        "epochs": int(train["epochs"]),
+        "imgsz": int(train["imgsz"]),
+        "batch": train["batch"],
+        "device": str(train["device"]),
+        "workers": int(train["workers"]),
+        "patience": int(train["patience"]),
+        "close_mosaic": int(train["close_mosaic"]),
+        "project": str(Path(config["project"]).resolve()),
+        "name": config["run_name"],
+        "seed": int(train["seed"]),
+        "deterministic": True,
+    }
+
+    optional_train_args = (
+        "optimizer",
+        "lr0",
+        "lrf",
+        "momentum",
+        "weight_decay",
+        "warmup_epochs",
+        "cos_lr",
+        "freeze",
+        "mosaic",
+        "mixup",
+        "scale",
+        "translate",
+        "hsv_h",
+        "hsv_s",
+        "hsv_v",
+        "erasing",
+        "amp",
     )
+
+    for key in optional_train_args:
+        if key in train:
+            train_args[key] = train[key]
+
+    model.train(**train_args)
     best = Path(model.trainer.best)
     if not best.is_file():
         raise FileNotFoundError(f"Ultralytics did not produce best weights: {best}")

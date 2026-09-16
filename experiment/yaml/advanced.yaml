@@ -1,14 +1,15 @@
 experiment: advanced
-description: Six-class YOLO26 detector with an ImageNet-pretrained EfficientNet-B0 backbone.
+description: Six-class YOLO26 detector with an ImageNet-pretrained EfficientNet-B0
+  backbone.
 model: /home/johny/durian_ws/experiment/yaml/yolo26n_efficientnet.yaml
 data: /home/johny/durian_ws/experiment/yaml/baseline_data.yaml
 expected_classes:
-  - leaf_algal
-  - leaf_blight
-  - leaf_colletotrichum
-  - leaf_healthy
-  - leaf_phomopsis
-  - leaf_rhizoctonia
+- leaf_algal
+- leaf_blight
+- leaf_colletotrichum
+- leaf_healthy
+- leaf_phomopsis
+- leaf_rhizoctonia
 output: /home/johny/durian_ws/models/durian_leaf/advanced.pt
 project: /home/johny/durian_ws/experiment/outputs/training_model
 run_name: advanced
@@ -16,11 +17,27 @@ train:
   epochs: 120
   imgsz: 1280
   batch: -1
-  device: "0"
+  device: '0'
   workers: 4
   patience: 25
   close_mosaic: 15
   seed: 20260915
+  optimizer: AdamW
+  lr0: 0.001
+  lrf: 0.01
+  weight_decay: 0.0005
+  warmup_epochs: 3.0
+  cos_lr: true
+  freeze: 0
+  mosaic: 0.5
+  mixup: 0.0
+  scale: 0.3
+  translate: 0.1
+  hsv_h: 0.015
+  hsv_s: 0.5
+  hsv_v: 0.3
+  erasing: 0.0
+  amp: true
 evaluations:
-  real: /home/johny/durian_ws/hybrid_datasets/hybrid_v3_clean/evaluation/real_test.yaml
-  gazebo: /home/johny/durian_ws/hybrid_datasets/hybrid_v3_clean/evaluation/gazebo_test.yaml
+  real: /home/johny/durian_ws/dataset/hybrid_v3_clean/evaluation/real_test.yaml
+  gazebo: /home/johny/durian_ws/dataset/hybrid_v3_clean/evaluation/gazebo_test.yaml

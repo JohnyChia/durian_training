@@ -6,7 +6,6 @@ from pathlib import Path
 
 from common import load_config, train_yolo_experiment
 
-
 DEFAULT_CONFIG = Path("/home/johny/durian_ws/experiment/yaml/advanced.yaml")
 
 
