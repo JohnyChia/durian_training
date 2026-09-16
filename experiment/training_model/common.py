@@ -78,6 +78,162 @@ def json_metrics(metrics) -> dict:
     return {key: float(value) for key, value in metrics.results_dict.items()}
 
 
+
+def _apply_semantic_yolo26_transfer(model, source_weights):
+    """
+    Transfer semantically corresponding YOLO26 detector weights into the
+    EfficientNet-backed Advanced detector.
+
+    EfficientNet remains ImageNet-pretrained.
+    COCO class-output tensors are transferred only when shapes are exactly
+    compatible; incompatible 80-class outputs remain newly initialized.
+    """
+    from ultralytics import YOLO
+
+    source = YOLO(str(source_weights)).model
+    target = model.model
+
+    semantic_map = (
+        (9,  7,  "SPPF"),
+        (10, 8,  "C2PSA"),
+        (13, 11, "FPN_P4_C3k2"),
+        (16, 14, "FPN_P3_C3k2"),
+        (17, 15, "PAN_P3_TO_P4_CONV"),
+        (19, 17, "PAN_P4_C3k2"),
+        (20, 18, "PAN_P4_TO_P5_CONV"),
+        (22, 20, "PAN_P5_C3k2"),
+    )
+
+    transferred = 0
+    eligible = 0
+
+    print("\n===== SEMANTIC YOLO26 PRETRAINED TRANSFER =====")
+
+    for src_idx, dst_idx, label in semantic_map:
+        src_module = source.model[src_idx]
+        dst_module = target.model[dst_idx]
+
+        src_state = src_module.state_dict()
+        dst_state = dst_module.state_dict()
+
+        new_state = {}
+
+        module_total = sum(v.numel() for v in dst_state.values())
+        module_transferred = 0
+        matched = 0
+
+        eligible += module_total
+
+        for key, dst_tensor in dst_state.items():
+            src_tensor = src_state.get(key)
+
+            if (
+                src_tensor is not None
+                and src_tensor.shape == dst_tensor.shape
+            ):
+                new_state[key] = src_tensor
+                module_transferred += dst_tensor.numel()
+                matched += 1
+
+        dst_module.load_state_dict(new_state, strict=False)
+
+        transferred += module_transferred
+
+        pct = (
+            100.0 * module_transferred / module_total
+            if module_total
+            else 100.0
+        )
+
+        print(
+            f"{label:24} "
+            f"{matched:3d}/{len(dst_state):3d} tensors "
+            f"{module_transferred:9,d}/{module_total:9,d} "
+            f"{pct:6.2f}%"
+        )
+
+    # Detect: official YOLO26 layer 23 -> Advanced layer 21.
+    src_detect = source.model[23]
+    dst_detect = target.model[21]
+
+    print("\n===== DETECT TRANSFER =====")
+
+    for branch in ("cv2", "one2one_cv2", "cv3", "one2one_cv3"):
+        src_branch = getattr(src_detect, branch)
+        dst_branch = getattr(dst_detect, branch)
+
+        src_state = src_branch.state_dict()
+        dst_state = dst_branch.state_dict()
+
+        new_state = {}
+
+        branch_total = sum(v.numel() for v in dst_state.values())
+        branch_transferred = 0
+        matched = 0
+
+        eligible += branch_total
+
+        for key, dst_tensor in dst_state.items():
+            src_tensor = src_state.get(key)
+
+            if (
+                src_tensor is not None
+                and src_tensor.shape == dst_tensor.shape
+            ):
+                new_state[key] = src_tensor
+                branch_transferred += dst_tensor.numel()
+                matched += 1
+
+        dst_branch.load_state_dict(new_state, strict=False)
+
+        transferred += branch_transferred
+
+        pct = (
+            100.0 * branch_transferred / branch_total
+            if branch_total
+            else 0.0
+        )
+
+        print(
+            f"{branch:18} "
+            f"{matched:3d}/{len(dst_state):3d} tensors "
+            f"{branch_transferred:9,d}/{branch_total:9,d} "
+            f"{pct:6.2f}%"
+        )
+
+    # Full YOLO-side state includes the three new EfficientNet adapters.
+    yolo_side_total = sum(
+        v.numel()
+        for idx in range(4, len(target.model))
+        for v in target.model[idx].state_dict().values()
+    )
+
+    coverage = (
+        100.0 * transferred / yolo_side_total
+        if yolo_side_total
+        else 0.0
+    )
+
+    print("\n===== TRANSFER SUMMARY =====")
+    print(f"Transferred state elements : {transferred:,}")
+    print(f"YOLO-side state elements   : {yolo_side_total:,}")
+    print(f"Semantic coverage          : {coverage:.2f}%")
+
+    if coverage < 60.0:
+        raise RuntimeError(
+            f"Semantic YOLO26 transfer coverage too low: {coverage:.2f}%"
+        )
+
+    print("TRANSFER GATE: PASS")
+
+    del source
+
+    return {
+        "transferred": transferred,
+        "yolo_side_total": yolo_side_total,
+        "coverage": coverage,
+    }
+
 def train_yolo_experiment(config: dict, overwrite: bool, check_only: bool):
     output = Path(config["output"])
     data = Path(config["data"])
@@ -116,6 +272,13 @@ def train_yolo_experiment(config: dict, overwrite: bool, check_only: bool):
     require_device(str(train["device"]))
     seed_everything(int(train["seed"]))
     model = YOLO(config["model"])
+
+    pretrained_detector = config.get("pretrained_detector")
+    if pretrained_detector:
+        _apply_semantic_yolo26_transfer(
+            model,
+            pretrained_detector,
+        )
 
     train_args = {
         "data": str(data.resolve()),

@@ -2,6 +2,7 @@ experiment: advanced
 description: Six-class YOLO26 detector with an ImageNet-pretrained EfficientNet-B0
   backbone.
 model: /home/johny/durian_ws/experiment/yaml/yolo26n_efficientnet.yaml
+pretrained_detector: yolo26n.pt
 data: /home/johny/durian_ws/experiment/yaml/baseline_data.yaml
 expected_classes:
 - leaf_algal
@@ -16,7 +17,7 @@ run_name: advanced
 train:
   epochs: 120
   imgsz: 1280
-  batch: -1
+  batch: 3
   device: '0'
   workers: 4
   patience: 25
