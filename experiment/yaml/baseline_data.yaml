@@ -1,4 +1,4 @@
-path: /home/johny/durian_ws/hybrid_datasets/hybrid_v3_clean/hybrid_balanced
+path: experiment/hybrid_dataset/hybrid
 train: images/train
 val: images/val
 test: images/test

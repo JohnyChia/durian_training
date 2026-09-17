@@ -6,8 +6,7 @@ from pathlib import Path
 
 from common import load_config, train_yolo_experiment
 
-
-DEFAULT_CONFIG = Path("/home/johny/durian_ws/experiment/yaml/baseline.yaml")
+DEFAULT_CONFIG = Path(__file__).resolve().parents[1] / "yaml/baseline.yaml"
 
 
 def main():

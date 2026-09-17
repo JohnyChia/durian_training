@@ -1,7 +1,9 @@
 experiment: original
-description: Six-class YOLO trained only on clean Gazebo v3 images.
+description: Six-class YOLO trained only on the audited, group-disjoint Gazebo subset.
 model: yolo26n.pt
-data: /home/johny/durian_ws/experiment/yaml/original_data.yaml
+data: experiment/yaml/original_data.yaml
+dataset_audit: experiment/hybrid_dataset/audit.json
+dataset_view: original
 expected_classes:
   - leaf_algal
   - leaf_blight
@@ -9,17 +11,17 @@ expected_classes:
   - leaf_healthy
   - leaf_phomopsis
   - leaf_rhizoctonia
-output: /home/johny/durian_ws/models/durian_leaf/original.pt
-project: /home/johny/durian_ws/experiment/outputs/training_model
+output: models/durian_leaf/original.pt
+project: experiment/outputs/training_model
 run_name: original
 train:
-  epochs: 120
+  epochs: 200
   imgsz: 1280
   batch: -1
   device: "0"
   workers: 4
-  patience: 25
+  patience: 40
   close_mosaic: 15
-  seed: 20260915
+  seed: 20260917
 evaluations:
-  gazebo: /home/johny/durian_ws/experiment/yaml/original_data.yaml
+  gazebo: experiment/hybrid_dataset/evaluation/gazebo.yaml

@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import os
 import random
 import shutil
@@ -15,7 +16,7 @@ import yaml
 from ultralytics import YOLO
 from ultralytics.data.utils import check_det_dataset
 
-WORKSPACE = Path("/home/johny/durian_ws")
+WORKSPACE = Path(__file__).resolve().parents[2]
 EXPECTED_DISEASE_CLASSES = [
     "leaf_algal",
     "leaf_blight",
@@ -35,6 +36,11 @@ def load_config(path: Path) -> dict:
     return config
 
 
+def workspace_path(value: str | Path) -> Path:
+    path = Path(value)
+    return path.resolve() if path.is_absolute() else (WORKSPACE / path).resolve()
+
+
 def seed_everything(seed: int):
     random.seed(seed)
     np.random.seed(seed)
@@ -52,7 +58,21 @@ def require_device(device: str):
 
 
 def validate_detection_yaml(path: Path, expected_names: list[str]) -> dict:
-    checked = check_det_dataset(str(path.resolve()))
+    path = workspace_path(path)
+    definition = yaml.safe_load(path.read_text())
+    if not isinstance(definition, dict):
+        raise ValueError(f"Dataset YAML must be a mapping: {path}")
+    dataset_root = Path(definition.get("path", path.parent))
+    if not dataset_root.is_absolute():
+        dataset_root = WORKSPACE / dataset_root
+    definition["path"] = str(dataset_root.resolve())
+    runtime_root = Path("/tmp/durian_training_dataset_yaml")
+    runtime_root.mkdir(parents=True, exist_ok=True)
+    runtime_name = hashlib.sha256(str(path).encode("utf-8")).hexdigest()[:16]
+    runtime_yaml = runtime_root / f"{runtime_name}.yaml"
+    runtime_yaml.write_text(yaml.safe_dump(definition, sort_keys=False))
+    checked = check_det_dataset(str(runtime_yaml))
+    checked["_resolved_yaml"] = str(runtime_yaml)
     names = [checked["names"][index] for index in sorted(checked["names"])]
     if names != expected_names:
         raise ValueError(f"Unexpected class order in {path}: {names}; expected {expected_names}")
@@ -60,6 +80,26 @@ def validate_detection_yaml(path: Path, expected_names: list[str]) -> dict:
         if not checked.get(split):
             raise ValueError(f"Missing {split} path in {path}")
     return checked
+
+
+def validate_dataset_audit(config: dict) -> dict:
+    audit_path = workspace_path(config["dataset_audit"])
+    audit = json.loads(audit_path.read_text())
+    view = config["dataset_view"]
+    if not audit.get("pass"):
+        raise ValueError(f"Dataset audit failed: {audit_path}")
+    report = audit.get(view)
+    if not isinstance(report, dict) or not report.get("pass"):
+        raise ValueError(f"Dataset view {view!r} did not pass audit: {audit_path}")
+    if report.get("issues"):
+        raise ValueError(f"Dataset view {view!r} contains audit issues: {report['issues']}")
+    return {
+        "path": str(audit_path),
+        "schema_version": audit.get("schema_version"),
+        "view": view,
+        "images": report.get("images"),
+        "boxes": report.get("boxes"),
+    }
 
 
 def prepare_output(path: Path, overwrite: bool):
@@ -81,20 +121,11 @@ def json_metrics(metrics) -> dict:
 
 
 def _apply_efficientnet_imagenet_normalization(model):
-    """
-    Apply ImageNet normalization only to the Advanced EfficientNet-B0 backbone.
-
-    Ultralytics supplies RGB tensors scaled to [0, 1], while torchvision
-    EfficientNet-B0 DEFAULT weights expect:
-        mean = [0.485, 0.456, 0.406]
-        std  = [0.229, 0.224, 0.225]
-
-    The patch is attached only to model.model[0] (TorchVision backbone), so
-    Original/Baseline and the YOLO26 neck/head are unaffected.
-    """
-    import types
-
     backbone = model.model.model[0]
+
+    if isinstance(backbone, torch.nn.Sequential):
+        print("ImageNet normalization already enabled.")
+        return
 
     if backbone.__class__.__name__ != "TorchVision":
         raise RuntimeError(
@@ -102,57 +133,26 @@ def _apply_efficientnet_imagenet_normalization(model):
             f"{backbone.__class__.__name__}, not TorchVision"
         )
 
-    if getattr(backbone, "_imagenet_normalization_enabled", False):
-        print("ImageNet normalization already enabled.")
-        return
-
-    mean = torch.tensor(
-        [0.485, 0.456, 0.406],
-        dtype=torch.float32,
-    ).view(1, 3, 1, 1)
-
-    std = torch.tensor(
-        [0.229, 0.224, 0.225],
-        dtype=torch.float32,
-    ).view(1, 3, 1, 1)
-
-    backbone.register_buffer(
-        "_imagenet_mean",
-        mean,
-        persistent=False,
-    )
-    backbone.register_buffer(
-        "_imagenet_std",
-        std,
-        persistent=False,
-    )
-
-    original_forward = backbone.forward
-
-    def normalized_forward(self, x):
-        mean_t = self._imagenet_mean.to(
-            device=x.device,
-            dtype=x.dtype,
-        )
-        std_t = self._imagenet_std.to(
-            device=x.device,
-            dtype=x.dtype,
-        )
-
-        x = (x - mean_t) / std_t
-        return original_forward(x)
-
-    backbone.forward = types.MethodType(
-        normalized_forward,
-        backbone,
-    )
-    backbone._imagenet_normalization_enabled = True
+    mean = torch.tensor([0.485, 0.456, 0.406], dtype=torch.float32)
+    std = torch.tensor([0.229, 0.224, 0.225], dtype=torch.float32)
+    normalizer = torch.nn.Conv2d(3, 3, kernel_size=1, groups=3, bias=True)
+    with torch.no_grad():
+        normalizer.weight.copy_((1.0 / std).view(3, 1, 1, 1))
+        normalizer.bias.copy_(-mean / std)
+    normalizer.weight.requires_grad_(False)
+    normalizer.bias.requires_grad_(False)
+    wrapped = torch.nn.Sequential(normalizer, backbone)
+    for attribute in ("i", "f", "type", "np"):
+        if hasattr(backbone, attribute):
+            setattr(wrapped, attribute, getattr(backbone, attribute))
+    model.model.model[0] = wrapped
 
     print("\n===== EFFICIENTNET INPUT NORMALIZATION =====")
     print("Input range       : Ultralytics RGB [0, 1]")
     print("Mean              : [0.485, 0.456, 0.406]")
     print("Std               : [0.229, 0.224, 0.225]")
-    print("Backbone layer    : model.model[0]")
+    print("Backbone layer    : model.model[0][1]")
+    print("Serializable      : standard PyTorch Sequential + grouped Conv2d")
     print("NORMALIZATION GATE: PASS")
 
 
@@ -312,9 +312,10 @@ def _apply_semantic_yolo26_transfer(model, source_weights):
     }
 
 def train_yolo_experiment(config: dict, overwrite: bool, check_only: bool):
-    output = Path(config["output"])
-    data = Path(config["data"])
+    output = workspace_path(config["output"])
+    data = workspace_path(config["data"])
     expected = config["expected_classes"]
+    dataset_audit = validate_dataset_audit(config)
     checked = validate_detection_yaml(data, expected)
     summary = {
         "experiment": config["experiment"],
@@ -322,13 +323,14 @@ def train_yolo_experiment(config: dict, overwrite: bool, check_only: bool):
         "model": config["model"],
         "data": str(data.resolve()),
         "classes": expected,
+        "dataset_audit": dataset_audit,
         "train": checked["train"],
         "val": checked["val"],
         "test": checked["test"],
         "output": str(output.resolve()),
     }
     if check_only:
-        model_path = Path(config["model"])
+        model_path = workspace_path(config["model"])
         if model_path.suffix.lower() in {".yaml", ".yml"} and model_path.is_file():
             architecture = YOLO(str(model_path.resolve()))
             if len(architecture.names) != len(expected):
@@ -348,7 +350,13 @@ def train_yolo_experiment(config: dict, overwrite: bool, check_only: bool):
     train = config["train"]
     require_device(str(train["device"]))
     seed_everything(int(train["seed"]))
-    model = YOLO(config["model"])
+    configured_model = Path(config["model"])
+    model_reference = (
+        str(workspace_path(configured_model))
+        if configured_model.suffix.lower() in {".yaml", ".yml"}
+        else config["model"]
+    )
+    model = YOLO(model_reference)
 
     if config.get("imagenet_normalize", False):
         _apply_efficientnet_imagenet_normalization(model)
@@ -361,7 +369,7 @@ def train_yolo_experiment(config: dict, overwrite: bool, check_only: bool):
         )
 
     train_args = {
-        "data": str(data.resolve()),
+        "data": checked["_resolved_yaml"],
         "epochs": int(train["epochs"]),
         "imgsz": int(train["imgsz"]),
         "batch": train["batch"],
@@ -369,7 +377,7 @@ def train_yolo_experiment(config: dict, overwrite: bool, check_only: bool):
         "workers": int(train["workers"]),
         "patience": int(train["patience"]),
         "close_mosaic": int(train["close_mosaic"]),
-        "project": str(Path(config["project"]).resolve()),
+        "project": str(workspace_path(config["project"])),
         "name": config["run_name"],
         "seed": int(train["seed"]),
         "deterministic": True,
@@ -408,10 +416,10 @@ def train_yolo_experiment(config: dict, overwrite: bool, check_only: bool):
     final_model = YOLO(output)
     evaluations = {}
     for name, evaluation_yaml in config["evaluations"].items():
-        evaluation_yaml = Path(evaluation_yaml)
-        validate_detection_yaml(evaluation_yaml, expected)
+        evaluation_yaml = workspace_path(evaluation_yaml)
+        checked_evaluation = validate_detection_yaml(evaluation_yaml, expected)
         metrics = final_model.val(
-            data=str(evaluation_yaml.resolve()),
+            data=checked_evaluation["_resolved_yaml"],
             split="test",
             imgsz=int(train["imgsz"]),
             device=str(train["device"]),
@@ -419,6 +427,6 @@ def train_yolo_experiment(config: dict, overwrite: bool, check_only: bool):
         )
         evaluations[name] = json_metrics(metrics)
     report = {**summary, "source_best": str(best.resolve()), "evaluations": evaluations}
-    report_path = Path(config["project"]) / config["run_name"] / "final_report.json"
+    report_path = workspace_path(config["project"]) / config["run_name"] / "final_report.json"
     report_path.write_text(json.dumps(report, indent=2))
     print(json.dumps(report, indent=2))
