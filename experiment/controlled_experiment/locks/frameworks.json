@@ -1,0 +1,6 @@
+{
+  "dfine": {"repository": "https://github.com/Peterande/D-FINE", "commit": "956d1709314c2c6a4df6f34de232054578a7449f", "python": "3.11.9", "requirements_source": "https://raw.githubusercontent.com/Peterande/D-FINE/956d1709314c2c6a4df6f34de232054578a7449f/requirements.txt"},
+  "rfdetr": {"package": "rfdetr[train]==1.11.0", "source_commit": "d96d6ff9303ec5af7bb8f73e83f0f04ecb6ef728", "wheel_sha256": "8ba29e551d74e03f146066ece12f29ec4eb6795b0348bd257c4b16a87eca7cff", "python": "3.11.9"},
+  "ultralytics": {"package": "ultralytics==8.4.152", "source_commit": "03e061fd22ad187fc3f228d14359697ef5720a5b", "sdist_sha256": "f425b1bda2aaea59454be90a9e662e06dd956fb02e8818fb2f7231f37286e00c", "python": "3.11.9"},
+  "base": {"python": "3.11.9", "torch": "2.6.0+cu124", "torchvision": "0.21.0+cu124", "cuda_build": "12.4", "note": "Install only in isolated reviewed environments; no installation was performed by this preparation."}
+}

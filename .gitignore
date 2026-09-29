@@ -1,4 +1,132 @@
-.venv/
+# ROS2 build
+build/
+install/
+log/
+
+# ROS bag
+rosbag2_*/
+
+# Database
+*.db
+*.sqlite
+
+# Logs
+*.log
+
+# Point cloud
+*.pcd
+
+# Python cache
 __pycache__/
 *.pyc
-experiment/outputs/
+
+# Generated files
+*.gv
+*.pdf
+captured_images/
+processed_images/
+
+# ML models
+*.pt
+*.onnx
+!models/durian_leaf/*.pt
+
+# VS Code
+.vscode/
+
+# Python virtual environment
+.venv/
+
+# External dependencies
+src/Depth-Anything-V2/
+src/explore_lite/
+src/explore_lite_msgs/
+src/map_merge/
+
+# Controlled training package
+# Keep experiment content private by default, then admit only the verified
+# Colab package below. Generated training/runtime artifacts stay ignored.
+experiment/*
+!experiment/datasets/
+!experiment/controlled_experiment/
+!experiment/training_model/
+
+experiment/datasets/*
+!experiment/datasets/README.md
+!experiment/datasets/dataset.yaml
+!experiment/datasets/gazebo.yaml
+!experiment/datasets/images/
+!experiment/datasets/images/**
+!experiment/datasets/labels/
+!experiment/datasets/labels/**
+!experiment/datasets/domains/
+experiment/datasets/domains/*
+!experiment/datasets/domains/gazebo/
+!experiment/datasets/domains/gazebo/images/
+!experiment/datasets/domains/gazebo/images/**
+!experiment/datasets/domains/gazebo/labels/
+!experiment/datasets/domains/gazebo/labels/**
+!experiment/datasets/manifests/
+experiment/datasets/manifests/*
+!experiment/datasets/manifests/audit.json
+!experiment/datasets/manifests/dataset_manifest.json
+!experiment/datasets/manifests/excluded_frames.json
+!experiment/datasets/manifests/excluded_samples.json
+!experiment/datasets/manifests/gazebo_label_review.json
+!experiment/datasets/manifests/real_source_manifest.json
+!experiment/datasets/manifests/source_groups.json
+!experiment/datasets/manifests/split_manifest.json
+!experiment/datasets/reports/
+experiment/datasets/reports/*
+!experiment/datasets/reports/dataset_diagnosis.md
+!experiment/datasets/reports/final_acceptance_report.md
+!experiment/datasets/reports/integrity_report.md
+!experiment/datasets/reports/leakage_report.md
+
+experiment/controlled_experiment/*
+!experiment/controlled_experiment/README.md
+!experiment/controlled_experiment/configs/
+!experiment/controlled_experiment/configs/**
+!experiment/controlled_experiment/locks/
+!experiment/controlled_experiment/locks/**
+!experiment/controlled_experiment/native/
+!experiment/controlled_experiment/native/**
+!experiment/controlled_experiment/coco/
+!experiment/controlled_experiment/coco/**
+!experiment/controlled_experiment/reports/
+!experiment/controlled_experiment/reports/gpu_preflight.json
+!experiment/controlled_experiment/reports/p2_transfer_verification.json
+experiment/controlled_experiment/outputs/
+experiment/controlled_experiment/weights/
+experiment/controlled_experiment/generated/
+
+experiment/training_model/*
+!experiment/training_model/README.md
+!experiment/training_model/requirements.txt
+!experiment/training_model/audit_clean_dataset.py
+!experiment/training_model/build_coco_view.py
+!experiment/training_model/candidate_runner.py
+!experiment/training_model/common_evaluator.py
+!experiment/training_model/controlled_common.py
+!experiment/training_model/gpu_preflight.py
+!experiment/training_model/prediction_adapter.py
+!experiment/training_model/readiness_audit.py
+!experiment/training_model/semantic_transfer_yolo26_p2.py
+!experiment/training_model/test_guard.py
+!experiment/training_model/verify_coco_view.py
+
+# Training/runtime products
+experiment/**/outputs/
+experiment/**/runs/
+experiment/**/checkpoints/
+experiment/**/*.cache
+experiment/**/*runtime*.yaml
+experiment/**/*runtime*.yml
+hybrid_datasets/
+external_datasets/
+
+# Temporary
+Function
+
+# Gazebo large textures
+src/durian_inspection_pkg/config/textures/

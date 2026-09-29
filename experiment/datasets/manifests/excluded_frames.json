@@ -1,0 +1,59 @@
+[
+  {
+    "boxes": 24,
+    "canonical_source_group": "gazebo_scene_tree_3",
+    "decision": "EXCLUDE_PERCEPTUAL_SCENE_EQUIVALENCE",
+    "intended_split": "val",
+    "matches": [
+      {
+        "paired_split": "train",
+        "paired_with": "gazebo_0089.png",
+        "phash_distance": 4
+      }
+    ],
+    "preserved_image": "/home/johny/durian_ws/experiment/datasets/auxiliary/excluded_gazebo/images/gazebo_0137.png",
+    "preserved_label": "/home/johny/durian_ws/experiment/datasets/auxiliary/excluded_gazebo/labels/gazebo_0137.txt",
+    "reason": "Strong pHash <=4 cross-split match under the planned canonical split.",
+    "sample": "gazebo_0137.png",
+    "sample_id": "v3_g3_durian_tree_3_r2.80_a05",
+    "sha256": "b71f95bb4e5e8df8b7b47ce6ce501e0c5b1a0ab6447d755f138f99dbb23f0af8"
+  },
+  {
+    "boxes": 15,
+    "canonical_source_group": "gazebo_scene_tree_4",
+    "decision": "EXCLUDE_PERCEPTUAL_SCENE_EQUIVALENCE",
+    "intended_split": "test",
+    "matches": [
+      {
+        "paired_split": "train",
+        "paired_with": "gazebo_0036.png",
+        "phash_distance": 0
+      }
+    ],
+    "preserved_image": "/home/johny/durian_ws/experiment/datasets/auxiliary/excluded_gazebo/images/gazebo_0180.png",
+    "preserved_label": "/home/johny/durian_ws/experiment/datasets/auxiliary/excluded_gazebo/labels/gazebo_0180.txt",
+    "reason": "Strong pHash <=4 cross-split match under the planned canonical split.",
+    "sample": "gazebo_0180.png",
+    "sample_id": "v3_g3_durian_tree_4_r2.80_a00",
+    "sha256": "2e215732d3fd00a7a46eb48cd48ef881b5e286de79a50d0bf3e1469afdd40a21"
+  },
+  {
+    "boxes": 16,
+    "canonical_source_group": "gazebo_scene_tree_4",
+    "decision": "EXCLUDE_PERCEPTUAL_SCENE_EQUIVALENCE",
+    "intended_split": "test",
+    "matches": [
+      {
+        "paired_split": "train",
+        "paired_with": "gazebo_0037.png",
+        "phash_distance": 4
+      }
+    ],
+    "preserved_image": "/home/johny/durian_ws/experiment/datasets/auxiliary/excluded_gazebo/images/gazebo_0181.png",
+    "preserved_label": "/home/johny/durian_ws/experiment/datasets/auxiliary/excluded_gazebo/labels/gazebo_0181.txt",
+    "reason": "Strong pHash <=4 cross-split match under the planned canonical split.",
+    "sample": "gazebo_0181.png",
+    "sample_id": "v3_g3_durian_tree_4_r2.80_a01",
+    "sha256": "62abf0773985d1b7970a72cc47257d74b3f76001e37bcb5723711d4c4384077c"
+  }
+]

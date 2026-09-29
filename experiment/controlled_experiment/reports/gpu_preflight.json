@@ -1,0 +1,19 @@
+{
+  "cuda_available": false,
+  "frameworks": {
+    "rfdetr": false,
+    "torch": true,
+    "ultralytics": true
+  },
+  "gpu_count": 0,
+  "gpus": [],
+  "later_measurement_protocol": {
+    "inference_vram": "reset peak stats, warm up 50, measure 200 images",
+    "latency": "batch=1, identical device/precision, synchronize CUDA, report median/p95 over 200 images",
+    "safe_batch": "binary search per candidate/resolution after dependency review; stop before OOM",
+    "training_vram": "torch.cuda.max_memory_allocated after warmup and one optimizer step"
+  },
+  "python": "3.10.12",
+  "torch": "2.6.0+cu124",
+  "torch_cuda_build": "12.4"
+}

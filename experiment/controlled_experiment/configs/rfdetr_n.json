@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "candidate": "rfdetr_n",
+  "architecture": {"family": "RF-DETR", "variant": "Nano", "encoder": "dinov2_windowed_small", "patch_size": 16, "decoder_layers": 2, "queries": 300, "native_resolution": 384},
+  "framework": {"name": "rfdetr", "version": "1.11.0", "source_commit": "d96d6ff9303ec5af7bb8f73e83f0f04ecb6ef728", "extra": "train"},
+  "initialization": {"checkpoint": "rf-detr-nano.pth", "lock_id": "rfdetr_nano_coco"},
+  "data": {"format": "coco", "image_roots": {"train": "../../datasets/images/train", "val": "../../datasets/images/val"}, "annotations": {"train": "../coco/annotations/instances_train.json", "val": "../coco/annotations/instances_val.json"}, "train": "train", "validation": "val", "test": {"split": "test", "access": "release_manifest_only"}, "classes": 6, "class_names": ["leaf_algal", "leaf_blight", "leaf_colletotrichum", "leaf_healthy", "leaf_phomopsis", "leaf_rhizoctonia"]},
+  "training": {"image_size": 384, "epochs": 200, "batch_size": 4, "gradient_accumulation_steps": 4, "effective_batch_size": 16, "optimizer": "AdamW", "learning_rate": 0.0001, "backbone_learning_rate": 0.00015, "weight_decay": 0.0001, "scheduler": "step", "lr_drop_epoch": 160, "warmup_epochs": 0, "amp": true, "workers": 4, "seeds": [20260917, 20260923, 20261001], "early_stopping": {"metric": "validation_map50_95", "mode": "max", "patience_epochs": 40}, "augmentation": {"multi_scale": true, "expanded_scales": true, "random_resize_via_padding": false, "square_resize_div_64": true}},
+  "output_directory": "../outputs/rfdetr_n",
+  "selection": {"split": "val", "metric": "map50_95", "checkpoint": "best"},
+  "declared_difference": "384 is the official Nano native resolution; changing it would alter positional geometry and pretrained behavior. Results are evaluated in original-image coordinates."
+}

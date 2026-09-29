@@ -1,0 +1,28 @@
+{
+  "canonical_dataset": {
+    "audit_json_sha256": "03f438475fc59d2c84b3cd59e9142f7d7de896295e4ae1df02179c4fc410e941",
+    "dataset_manifest_sha256": "c9b9ef056d7f1b43b70bd7169dcba2f87f506f97ab2cfff93a8232b54b535a0b",
+    "images_tree_sha256": "890260e1049995bac65610f89695667d0377c1afa97af54a0b1a8df1bd68df34",
+    "labels_tree_sha256": "a3ae12b53b325aad9c86af354ce782b14ced4bd8e22cc34730cd3688dcc6987d"
+  },
+  "configs": {
+    "dfine_n.json": "24cbe33e2af8738e786ea90b5ba318bcf34744b71ab1fc21d4bcb7ab3480f974",
+    "rfdetr_n.json": "34f1ebec1278a9faf3dacc8de497e584290f17fd8a5373c8e4931525108b4d6d",
+    "yolo26n.json": "12cdaea38c611c92ac25eff70cc2e2a0b117e78946c738e4f92e1f229d83fbdf",
+    "yolo26n_p2.json": "d9ef88573c8b14ede575e8311dae65c40fb67db4860bcdc0d669e64ef5fd01b9"
+  },
+  "native_configs": {"dfine_n_custom.yml": "a03927d66d325a36740f528bc23bdf0ebafd1c8c1365276acca0790f5e52dbc0"},
+  "code": {
+    "build_coco_view.py": "3224620846528e43546507a0ca673f87fb9f4a90b018609c04f1753bfad70007",
+    "verify_coco_view.py": "af289357e12b293cb84b6af631d0296086ca5729e59d1dd4f3da8f569304ede1",
+    "common_evaluator.py": "79e49d674d9662e63ab26d4bedd52a6c0a555413e2fffad72ed058fa90e07283",
+    "prediction_adapter.py": "b3e6d44a87e48d0266c27d9c95a2a769689dcd60026af059904e323b792cd365",
+    "test_guard.py": "3c238a9d951e40a1c3e0e4188239d62481eae0d01c18379516d0784a228a2358",
+    "semantic_transfer_yolo26_p2.py": "dd8efb9ed0afccd6ea575937c8554db312fe8b3ea9bd04403e0b07f669e16331",
+    "candidate_runner.py": "cdad5bf85b2d8561bff2878291b25cc957d8f1111f7fb25f69ef2e81a48e4a58"
+  },
+  "generated_evidence": {
+    "coco_manifest.json": "c670e6441ec1137718aab382e9235692992fb31d1989deb81d14ccdb9fc0cca3",
+    "p2_transfer_verification.json": "314b157ef03cf1b40f3fc3631a1a453a476b1a0f07c84601496abdd08bde9d76"
+  }
+}

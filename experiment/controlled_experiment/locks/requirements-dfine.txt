@@ -1,0 +1,12 @@
+# Clone D-FINE at 956d1709314c2c6a4df6f34de232054578a7449f, then install its requirements.
+--index-url https://download.pytorch.org/whl/cu124
+torch==2.6.0+cu124
+torchvision==0.21.0+cu124
+--extra-index-url https://pypi.org/simple
+faster-coco-eval==1.6.6
+PyYAML==6.0.2
+tensorboard==2.20.0
+scipy==1.15.3
+calflops==0.3.2
+transformers==4.57.1
+loguru==0.7.3

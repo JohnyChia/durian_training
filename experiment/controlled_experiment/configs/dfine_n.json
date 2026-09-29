@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "candidate": "dfine_n",
+  "architecture": {"family": "D-FINE", "variant": "Nano", "backbone": "HGNetv2-B0", "feature_strides": [16, 32], "hidden_dim": 128, "decoder_layers": 3, "queries": 300, "native_resolution": 640, "upstream_config": "configs/dfine/dfine_hgnetv2_n_coco.yml"},
+  "framework": {"name": "D-FINE", "repository": "https://github.com/Peterande/D-FINE", "commit": "956d1709314c2c6a4df6f34de232054578a7449f"},
+  "initialization": {"checkpoint": "dfine_n_coco.pth", "lock_id": "dfine_n_coco", "mode": "tuning"},
+  "data": {"format": "coco", "image_roots": {"train": "../../datasets/images/train", "val": "../../datasets/images/val"}, "annotations": {"train": "../coco/annotations/instances_train.json", "val": "../coco/annotations/instances_val.json"}, "remap_mscoco_category": false, "train": "train", "validation": "val", "test": {"split": "test", "access": "release_manifest_only"}, "classes": 6, "class_names": ["leaf_algal", "leaf_blight", "leaf_colletotrichum", "leaf_healthy", "leaf_phomopsis", "leaf_rhizoctonia"]},
+  "training": {"image_size": 640, "epochs": 160, "batch_size": 4, "effective_batch_size": 4, "optimizer": "AdamW", "learning_rate": 0.000025, "backbone_learning_rate": 0.0000125, "weight_decay": 0.0001, "scheduler": "MultiStepLR", "lr_milestones": [148], "warmup_steps": 2000, "amp": true, "workers": 4, "seeds": [20260917, 20260923, 20261001], "early_stopping": {"enabled": false, "policy": "fixed 160-epoch upstream Nano schedule; select best validation checkpoint only"}, "augmentation": {"policy": "upstream_coco_detection", "stop_epoch": 148, "random_photometric_distort": true, "random_zoom_out": true, "random_iou_crop": true, "random_horizontal_flip": 0.5, "resize": [640, 640]}},
+  "output_directory": "../outputs/dfine_n",
+  "selection": {"split": "val", "metric": "map50_95", "checkpoint": "best"},
+  "declared_difference": "640 is the published D-FINE-N evaluation size. Learning rates are linearly scaled from the upstream total batch 128 recipe to batch 4."
+}

@@ -1,0 +1,1507 @@
+{
+  "gazebo_scene_g1_unknown": {
+    "camera_families": [
+      {
+        "angle_index": null,
+        "radius": null,
+        "trajectory": "unknown"
+      }
+    ],
+    "canonical_source_group": "gazebo_scene_g1_unknown",
+    "members": [
+      "gazebo_0192.png",
+      "gazebo_0193.png",
+      "gazebo_0194.png"
+    ],
+    "source_versions": [
+      "gazebo_v2"
+    ],
+    "split": "train",
+    "tree_identity": "unknown",
+    "world_scene": "legacy_g1"
+  },
+  "gazebo_scene_tree_1": {
+    "camera_families": [
+      {
+        "angle_index": 0,
+        "radius": 0.8,
+        "trajectory": "orbit_r0.80"
+      },
+      {
+        "angle_index": 0,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 0,
+        "radius": 1.1,
+        "trajectory": "orbit_r1.10"
+      },
+      {
+        "angle_index": 0,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 0,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 0,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 1,
+        "radius": 0.8,
+        "trajectory": "orbit_r0.80"
+      },
+      {
+        "angle_index": 1,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 1,
+        "radius": 1.1,
+        "trajectory": "orbit_r1.10"
+      },
+      {
+        "angle_index": 1,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 1,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 1,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 10,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 10,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 10,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 10,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 11,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 11,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 11,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 11,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 2,
+        "radius": 0.8,
+        "trajectory": "orbit_r0.80"
+      },
+      {
+        "angle_index": 2,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 2,
+        "radius": 1.1,
+        "trajectory": "orbit_r1.10"
+      },
+      {
+        "angle_index": 2,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 2,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 2,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 3,
+        "radius": 0.8,
+        "trajectory": "orbit_r0.80"
+      },
+      {
+        "angle_index": 3,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 3,
+        "radius": 1.1,
+        "trajectory": "orbit_r1.10"
+      },
+      {
+        "angle_index": 3,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 3,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 3,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 4,
+        "radius": 0.8,
+        "trajectory": "orbit_r0.80"
+      },
+      {
+        "angle_index": 4,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 4,
+        "radius": 1.1,
+        "trajectory": "orbit_r1.10"
+      },
+      {
+        "angle_index": 4,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 4,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 4,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 5,
+        "radius": 0.8,
+        "trajectory": "orbit_r0.80"
+      },
+      {
+        "angle_index": 5,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 5,
+        "radius": 1.1,
+        "trajectory": "orbit_r1.10"
+      },
+      {
+        "angle_index": 5,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 5,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 5,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 6,
+        "radius": 0.8,
+        "trajectory": "orbit_r0.80"
+      },
+      {
+        "angle_index": 6,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 6,
+        "radius": 1.1,
+        "trajectory": "orbit_r1.10"
+      },
+      {
+        "angle_index": 6,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 6,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 6,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 7,
+        "radius": 0.8,
+        "trajectory": "orbit_r0.80"
+      },
+      {
+        "angle_index": 7,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 7,
+        "radius": 1.1,
+        "trajectory": "orbit_r1.10"
+      },
+      {
+        "angle_index": 7,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 7,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 7,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 8,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 8,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 8,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 8,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 9,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 9,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 9,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 9,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      }
+    ],
+    "canonical_source_group": "gazebo_scene_tree_1",
+    "members": [
+      "gazebo_0000.png",
+      "gazebo_0001.png",
+      "gazebo_0002.png",
+      "gazebo_0003.png",
+      "gazebo_0004.png",
+      "gazebo_0005.png",
+      "gazebo_0006.png",
+      "gazebo_0007.png",
+      "gazebo_0008.png",
+      "gazebo_0009.png",
+      "gazebo_0010.png",
+      "gazebo_0011.png",
+      "gazebo_0012.png",
+      "gazebo_0013.png",
+      "gazebo_0014.png",
+      "gazebo_0015.png",
+      "gazebo_0016.png",
+      "gazebo_0017.png",
+      "gazebo_0018.png",
+      "gazebo_0019.png",
+      "gazebo_0020.png",
+      "gazebo_0021.png",
+      "gazebo_0022.png",
+      "gazebo_0023.png",
+      "gazebo_0024.png",
+      "gazebo_0025.png",
+      "gazebo_0026.png",
+      "gazebo_0027.png",
+      "gazebo_0028.png",
+      "gazebo_0029.png",
+      "gazebo_0030.png",
+      "gazebo_0031.png",
+      "gazebo_0032.png",
+      "gazebo_0033.png",
+      "gazebo_0034.png",
+      "gazebo_0035.png",
+      "gazebo_0036.png",
+      "gazebo_0037.png",
+      "gazebo_0038.png",
+      "gazebo_0039.png",
+      "gazebo_0040.png",
+      "gazebo_0041.png",
+      "gazebo_0042.png",
+      "gazebo_0043.png",
+      "gazebo_0044.png",
+      "gazebo_0045.png",
+      "gazebo_0046.png",
+      "gazebo_0047.png",
+      "gazebo_0195.png",
+      "gazebo_0196.png",
+      "gazebo_0197.png",
+      "gazebo_0198.png",
+      "gazebo_0199.png",
+      "gazebo_0200.png",
+      "gazebo_0201.png",
+      "gazebo_0202.png",
+      "gazebo_0203.png",
+      "gazebo_0204.png",
+      "gazebo_0205.png",
+      "gazebo_0206.png",
+      "gazebo_0207.png",
+      "gazebo_0208.png",
+      "gazebo_0209.png",
+      "gazebo_0240.png",
+      "gazebo_0241.png",
+      "gazebo_0242.png",
+      "gazebo_0243.png",
+      "gazebo_0244.png",
+      "gazebo_0245.png"
+    ],
+    "source_versions": [
+      "gazebo_v2",
+      "gazebo_v3"
+    ],
+    "split": "train",
+    "tree_identity": "durian_tree_1",
+    "world_scene": "durian_farm_static_world"
+  },
+  "gazebo_scene_tree_2": {
+    "camera_families": [
+      {
+        "angle_index": 0,
+        "radius": 0.8,
+        "trajectory": "orbit_r0.80"
+      },
+      {
+        "angle_index": 0,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 0,
+        "radius": 1.1,
+        "trajectory": "orbit_r1.10"
+      },
+      {
+        "angle_index": 0,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 0,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 0,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 1,
+        "radius": 0.8,
+        "trajectory": "orbit_r0.80"
+      },
+      {
+        "angle_index": 1,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 1,
+        "radius": 1.1,
+        "trajectory": "orbit_r1.10"
+      },
+      {
+        "angle_index": 1,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 1,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 1,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 10,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 10,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 10,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 10,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 11,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 11,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 11,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 11,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 2,
+        "radius": 0.8,
+        "trajectory": "orbit_r0.80"
+      },
+      {
+        "angle_index": 2,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 2,
+        "radius": 1.1,
+        "trajectory": "orbit_r1.10"
+      },
+      {
+        "angle_index": 2,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 2,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 2,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 3,
+        "radius": 0.8,
+        "trajectory": "orbit_r0.80"
+      },
+      {
+        "angle_index": 3,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 3,
+        "radius": 1.1,
+        "trajectory": "orbit_r1.10"
+      },
+      {
+        "angle_index": 3,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 3,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 3,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 4,
+        "radius": 0.8,
+        "trajectory": "orbit_r0.80"
+      },
+      {
+        "angle_index": 4,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 4,
+        "radius": 1.1,
+        "trajectory": "orbit_r1.10"
+      },
+      {
+        "angle_index": 4,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 4,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 4,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 5,
+        "radius": 0.8,
+        "trajectory": "orbit_r0.80"
+      },
+      {
+        "angle_index": 5,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 5,
+        "radius": 1.1,
+        "trajectory": "orbit_r1.10"
+      },
+      {
+        "angle_index": 5,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 5,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 5,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 6,
+        "radius": 0.8,
+        "trajectory": "orbit_r0.80"
+      },
+      {
+        "angle_index": 6,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 6,
+        "radius": 1.1,
+        "trajectory": "orbit_r1.10"
+      },
+      {
+        "angle_index": 6,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 6,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 6,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 7,
+        "radius": 0.8,
+        "trajectory": "orbit_r0.80"
+      },
+      {
+        "angle_index": 7,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 7,
+        "radius": 1.1,
+        "trajectory": "orbit_r1.10"
+      },
+      {
+        "angle_index": 7,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 7,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 7,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 8,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 8,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 8,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 8,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 9,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 9,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 9,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 9,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      }
+    ],
+    "canonical_source_group": "gazebo_scene_tree_2",
+    "members": [
+      "gazebo_0048.png",
+      "gazebo_0049.png",
+      "gazebo_0050.png",
+      "gazebo_0051.png",
+      "gazebo_0052.png",
+      "gazebo_0053.png",
+      "gazebo_0054.png",
+      "gazebo_0055.png",
+      "gazebo_0056.png",
+      "gazebo_0057.png",
+      "gazebo_0058.png",
+      "gazebo_0059.png",
+      "gazebo_0060.png",
+      "gazebo_0061.png",
+      "gazebo_0062.png",
+      "gazebo_0063.png",
+      "gazebo_0064.png",
+      "gazebo_0065.png",
+      "gazebo_0066.png",
+      "gazebo_0067.png",
+      "gazebo_0068.png",
+      "gazebo_0069.png",
+      "gazebo_0070.png",
+      "gazebo_0071.png",
+      "gazebo_0072.png",
+      "gazebo_0073.png",
+      "gazebo_0074.png",
+      "gazebo_0075.png",
+      "gazebo_0076.png",
+      "gazebo_0077.png",
+      "gazebo_0078.png",
+      "gazebo_0079.png",
+      "gazebo_0080.png",
+      "gazebo_0081.png",
+      "gazebo_0082.png",
+      "gazebo_0083.png",
+      "gazebo_0084.png",
+      "gazebo_0085.png",
+      "gazebo_0086.png",
+      "gazebo_0087.png",
+      "gazebo_0088.png",
+      "gazebo_0089.png",
+      "gazebo_0090.png",
+      "gazebo_0091.png",
+      "gazebo_0092.png",
+      "gazebo_0093.png",
+      "gazebo_0094.png",
+      "gazebo_0095.png",
+      "gazebo_0210.png",
+      "gazebo_0211.png",
+      "gazebo_0212.png",
+      "gazebo_0213.png",
+      "gazebo_0214.png",
+      "gazebo_0215.png",
+      "gazebo_0216.png",
+      "gazebo_0217.png",
+      "gazebo_0218.png",
+      "gazebo_0219.png",
+      "gazebo_0220.png",
+      "gazebo_0221.png",
+      "gazebo_0222.png",
+      "gazebo_0223.png",
+      "gazebo_0224.png",
+      "gazebo_0225.png",
+      "gazebo_0226.png",
+      "gazebo_0227.png",
+      "gazebo_0246.png",
+      "gazebo_0247.png",
+      "gazebo_0248.png",
+      "gazebo_0249.png",
+      "gazebo_0250.png",
+      "gazebo_0251.png"
+    ],
+    "source_versions": [
+      "gazebo_v2",
+      "gazebo_v3"
+    ],
+    "split": "train",
+    "tree_identity": "durian_tree_2",
+    "world_scene": "durian_farm_static_world"
+  },
+  "gazebo_scene_tree_3": {
+    "camera_families": [
+      {
+        "angle_index": 0,
+        "radius": 0.8,
+        "trajectory": "orbit_r0.80"
+      },
+      {
+        "angle_index": 0,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 0,
+        "radius": 1.1,
+        "trajectory": "orbit_r1.10"
+      },
+      {
+        "angle_index": 0,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 0,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 0,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 1,
+        "radius": 0.8,
+        "trajectory": "orbit_r0.80"
+      },
+      {
+        "angle_index": 1,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 1,
+        "radius": 1.1,
+        "trajectory": "orbit_r1.10"
+      },
+      {
+        "angle_index": 1,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 1,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 1,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 10,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 10,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 10,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 10,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 11,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 11,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 11,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 11,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 2,
+        "radius": 0.8,
+        "trajectory": "orbit_r0.80"
+      },
+      {
+        "angle_index": 2,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 2,
+        "radius": 1.1,
+        "trajectory": "orbit_r1.10"
+      },
+      {
+        "angle_index": 2,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 2,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 2,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 3,
+        "radius": 0.8,
+        "trajectory": "orbit_r0.80"
+      },
+      {
+        "angle_index": 3,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 3,
+        "radius": 1.1,
+        "trajectory": "orbit_r1.10"
+      },
+      {
+        "angle_index": 3,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 3,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 3,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 4,
+        "radius": 0.8,
+        "trajectory": "orbit_r0.80"
+      },
+      {
+        "angle_index": 4,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 4,
+        "radius": 1.1,
+        "trajectory": "orbit_r1.10"
+      },
+      {
+        "angle_index": 4,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 4,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 4,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 5,
+        "radius": 0.8,
+        "trajectory": "orbit_r0.80"
+      },
+      {
+        "angle_index": 5,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 5,
+        "radius": 1.1,
+        "trajectory": "orbit_r1.10"
+      },
+      {
+        "angle_index": 5,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 5,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 6,
+        "radius": 0.8,
+        "trajectory": "orbit_r0.80"
+      },
+      {
+        "angle_index": 6,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 6,
+        "radius": 1.1,
+        "trajectory": "orbit_r1.10"
+      },
+      {
+        "angle_index": 6,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 6,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 6,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 7,
+        "radius": 0.8,
+        "trajectory": "orbit_r0.80"
+      },
+      {
+        "angle_index": 7,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 7,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 7,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 7,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 8,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 8,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 8,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 8,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 9,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 9,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 9,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 9,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      }
+    ],
+    "canonical_source_group": "gazebo_scene_tree_3",
+    "members": [
+      "gazebo_0096.png",
+      "gazebo_0097.png",
+      "gazebo_0098.png",
+      "gazebo_0099.png",
+      "gazebo_0100.png",
+      "gazebo_0101.png",
+      "gazebo_0102.png",
+      "gazebo_0103.png",
+      "gazebo_0104.png",
+      "gazebo_0105.png",
+      "gazebo_0106.png",
+      "gazebo_0107.png",
+      "gazebo_0108.png",
+      "gazebo_0109.png",
+      "gazebo_0110.png",
+      "gazebo_0111.png",
+      "gazebo_0112.png",
+      "gazebo_0113.png",
+      "gazebo_0114.png",
+      "gazebo_0115.png",
+      "gazebo_0116.png",
+      "gazebo_0117.png",
+      "gazebo_0118.png",
+      "gazebo_0119.png",
+      "gazebo_0120.png",
+      "gazebo_0121.png",
+      "gazebo_0122.png",
+      "gazebo_0123.png",
+      "gazebo_0124.png",
+      "gazebo_0125.png",
+      "gazebo_0126.png",
+      "gazebo_0127.png",
+      "gazebo_0128.png",
+      "gazebo_0129.png",
+      "gazebo_0130.png",
+      "gazebo_0131.png",
+      "gazebo_0132.png",
+      "gazebo_0133.png",
+      "gazebo_0134.png",
+      "gazebo_0135.png",
+      "gazebo_0136.png",
+      "gazebo_0138.png",
+      "gazebo_0139.png",
+      "gazebo_0140.png",
+      "gazebo_0141.png",
+      "gazebo_0142.png",
+      "gazebo_0143.png",
+      "gazebo_0228.png",
+      "gazebo_0229.png",
+      "gazebo_0230.png",
+      "gazebo_0231.png",
+      "gazebo_0232.png",
+      "gazebo_0233.png",
+      "gazebo_0234.png",
+      "gazebo_0235.png",
+      "gazebo_0236.png",
+      "gazebo_0237.png",
+      "gazebo_0238.png",
+      "gazebo_0239.png",
+      "gazebo_0252.png",
+      "gazebo_0253.png",
+      "gazebo_0254.png"
+    ],
+    "source_versions": [
+      "gazebo_v2",
+      "gazebo_v3"
+    ],
+    "split": "val",
+    "tree_identity": "durian_tree_3",
+    "world_scene": "durian_farm_static_world"
+  },
+  "gazebo_scene_tree_4": {
+    "camera_families": [
+      {
+        "angle_index": 0,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 0,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 0,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 1,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 1,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 1,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 10,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 10,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 10,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 10,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 11,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 11,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 11,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 11,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 2,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 2,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 2,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 2,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 3,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 3,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 3,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 3,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 4,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 4,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 4,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 4,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 5,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 5,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 5,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 5,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 6,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 6,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 6,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 6,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 7,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 7,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 7,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 7,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 8,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 8,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 8,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 8,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      },
+      {
+        "angle_index": 9,
+        "radius": 0.9,
+        "trajectory": "orbit_r0.90"
+      },
+      {
+        "angle_index": 9,
+        "radius": 1.4,
+        "trajectory": "orbit_r1.40"
+      },
+      {
+        "angle_index": 9,
+        "radius": 2.0,
+        "trajectory": "orbit_r2.00"
+      },
+      {
+        "angle_index": 9,
+        "radius": 2.8,
+        "trajectory": "orbit_r2.80"
+      }
+    ],
+    "canonical_source_group": "gazebo_scene_tree_4",
+    "members": [
+      "gazebo_0144.png",
+      "gazebo_0145.png",
+      "gazebo_0146.png",
+      "gazebo_0147.png",
+      "gazebo_0148.png",
+      "gazebo_0149.png",
+      "gazebo_0150.png",
+      "gazebo_0151.png",
+      "gazebo_0152.png",
+      "gazebo_0153.png",
+      "gazebo_0154.png",
+      "gazebo_0155.png",
+      "gazebo_0156.png",
+      "gazebo_0157.png",
+      "gazebo_0158.png",
+      "gazebo_0159.png",
+      "gazebo_0160.png",
+      "gazebo_0161.png",
+      "gazebo_0162.png",
+      "gazebo_0163.png",
+      "gazebo_0164.png",
+      "gazebo_0165.png",
+      "gazebo_0166.png",
+      "gazebo_0167.png",
+      "gazebo_0168.png",
+      "gazebo_0169.png",
+      "gazebo_0170.png",
+      "gazebo_0171.png",
+      "gazebo_0172.png",
+      "gazebo_0173.png",
+      "gazebo_0174.png",
+      "gazebo_0175.png",
+      "gazebo_0176.png",
+      "gazebo_0177.png",
+      "gazebo_0178.png",
+      "gazebo_0179.png",
+      "gazebo_0182.png",
+      "gazebo_0183.png",
+      "gazebo_0184.png",
+      "gazebo_0185.png",
+      "gazebo_0186.png",
+      "gazebo_0187.png",
+      "gazebo_0188.png",
+      "gazebo_0189.png",
+      "gazebo_0190.png",
+      "gazebo_0191.png"
+    ],
+    "source_versions": [
+      "gazebo_v3"
+    ],
+    "split": "test",
+    "tree_identity": "durian_tree_4",
+    "world_scene": "durian_farm_static_world"
+  }
+}

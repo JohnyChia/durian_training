@@ -1,49 +1,61 @@
-# Durian leaf model training
+# Durian leaf model experiment tooling
 
-The project uses one self-contained dataset at `experiment/hybrid_dataset`.
+This directory preserves/audits the canonical dataset and supplies the guarded,
+framework-neutral control plane for the four-candidate detector study. No model
+has been trained by this preparation.
 
-- `original/` is the Gazebo-only view for Original.
-- `hybrid/` is the image- and training-box-balanced real/Gazebo view shared by Baseline and Advanced.
-- `evaluation/` contains separate real and Gazebo evaluation configurations.
-- `audit.json` must pass before any training command is allowed to run.
+## Retained tools
 
-The Git repository stores the dataset as a Git LFS archive. In a fresh Google Colab runtime:
+- `audit_clean_dataset.py` independently validates integrity, class mapping, distributions, and split leakage.
 
-```bash
-git clone https://github.com/JohnyChia/durian_training.git
-cd durian_training
-git lfs pull
-tar -xzf dataset/hybrid_dataset.tar.gz -C experiment
-pip install -r experiment/training_model/requirements.txt
-```
-
-After extraction, `experiment/hybrid_dataset/audit.json` must exist. The rebuild script records how the dataset was produced, but rebuilding from source requires reacquiring the retired source datasets.
-
-Three reproducible experiment entry points are provided. Run the checks first:
+Run the safe dataset audit with:
 
 ```bash
-cd durian_training
-python3 experiment/training_model/train_original.py --check-only
-python3 experiment/training_model/train_baseline.py --check-only
-python3 experiment/training_model/train_advanced.py --check-only
+python3 experiment/training_model/audit_clean_dataset.py
 ```
 
-Train in order when CUDA is available:
+The accepted result is:
+
+```text
+PASS — GAZEBO TRAINING READY / REAL ANNOTATION PENDING
+```
+
+## Controlled training status
+
+The retired Original, Baseline, and EfficientNet Advanced entry points were removed after dependency analysis. They were not four controlled architecture candidates, and their shared runner automatically exposed the test split after each run.
+
+The executable frozen configurations now cover:
+
+1. YOLO26n
+2. YOLO26n-P2
+3. RF-DETR-N
+4. D-FINE-N
+
+Run the single behavioral gate with:
 
 ```bash
-python3 experiment/training_model/train_original.py --overwrite
-python3 experiment/training_model/train_baseline.py --overwrite
-python3 experiment/training_model/train_advanced.py --overwrite
+python3 experiment/training_model/readiness_audit.py
 ```
 
-Each command refuses to replace an existing final model. Use `--overwrite` only when an intentional retrain should replace it.
+It re-hashes canonical data, reconstructs identities, verifies every YOLO/COCO
+box, validates config/code/checkpoint locks, exercises the common evaluator and
+adapters, proves unauthorized test evaluation is denied, and checks the GPU
+preflight report. The accepted final line is `PASS — CONTROLLED TRAINING READY`.
 
-Final outputs:
+Use `candidate_runner.py --check` to validate an individual configuration.
+`--execute` is the deliberate future training action; do not use it until the
+isolated dependency environments and GPU batch preflight have been reviewed.
+Training and selection receive only train/validation. The RF-DETR trainer view
+physically omits test. Test evaluation requires a release manifest created by
+`test_guard.py freeze` from final frozen checkpoints.
 
-- `models/durian_leaf/original.pt`: standard six-class YOLO26n checkpoint, trained on Gazebo only.
-- `models/durian_leaf/baseline.pt`: standard six-class YOLO26n checkpoint, trained on balanced real/Gazebo data.
-- `models/durian_leaf/advanced.pt`: standard six-class YOLO checkpoint with an EfficientNet-B0 backbone and YOLO26 detection head, trained on the same balanced data as Baseline.
+See `experiment/controlled_experiment/README.md` for the experiment contract
+and exact next commands. The retired `experiment/yaml/` pipeline and one-time
+dataset rebuild utility are intentionally excluded from the GitHub package.
 
-All three final files can be loaded directly with `YOLO(path)`. Baseline and Advanced use the same audited hybrid data. Existing checkpoints were trained on the retired dataset, so all three models must be retrained before the new experiment.
+## Environment note
 
-Training artifacts and evaluation reports are stored under `experiment/outputs/training_model/`; the three final deployable files are stored under `models/durian_leaf/`.
+`requirements.txt` remains limited to dataset tooling. Framework environments
+are intentionally separate and frozen under `controlled_experiment/locks/`.
+The current virtual environment is not the training environment; no dependency
+was installed during preparation.

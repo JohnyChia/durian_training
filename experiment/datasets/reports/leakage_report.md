@@ -1,0 +1,37 @@
+# Leakage Report
+
+**Acceptance result: PASS**
+
+- Exact cross-split duplicates: 0
+- Decoded-pixel cross-split duplicates: 0
+- Canonical source groups crossing splits: 0
+- Same-tree camera families crossing splits: 0
+- Perceptual candidates at pHash <=10: 21
+- Strong candidates at pHash <=4: 0
+- Unresolved strong candidates: 0
+
+Perceptual candidate investigations:
+
+- `train/gazebo_0025` ↔ `test/gazebo_0169`: pHash 10, correlation 0.9103, equal-channel fraction 0.9112. Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.
+- `train/gazebo_0029` ↔ `test/gazebo_0173`: pHash 6, correlation 0.7589, equal-channel fraction 0.7899. Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.
+- `train/gazebo_0030` ↔ `test/gazebo_0174`: pHash 8, correlation 0.7845, equal-channel fraction 0.8209. Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.
+- `train/gazebo_0041` ↔ `test/gazebo_0185`: pHash 9, correlation 0.7862, equal-channel fraction 0.8496. Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.
+- `train/gazebo_0045` ↔ `val/gazebo_0141`: pHash 8, correlation 0.8994, equal-channel fraction 0.9321. Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.
+- `train/gazebo_0045` ↔ `test/gazebo_0189`: pHash 9, correlation 0.9033, equal-channel fraction 0.9313. Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.
+- `train/gazebo_0047` ↔ `test/gazebo_0191`: pHash 9, correlation 0.9401, equal-channel fraction 0.9546. Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.
+- `train/gazebo_0078` ↔ `test/gazebo_0174`: pHash 9, correlation 0.7907, equal-channel fraction 0.8302. Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.
+- `train/gazebo_0083` ↔ `val/gazebo_0131`: pHash 6, correlation 0.7053, equal-channel fraction 0.7585. Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.
+- `train/gazebo_0084` ↔ `val/gazebo_0132`: pHash 7, correlation 0.8534, equal-channel fraction 0.8895. Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.
+- `train/gazebo_0093` ↔ `val/gazebo_0141`: pHash 9, correlation 0.8891, equal-channel fraction 0.9287. Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.
+- `val/gazebo_0124` ↔ `test/gazebo_0172`: pHash 6, correlation 0.7526, equal-channel fraction 0.7760. Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.
+- `val/gazebo_0129` ↔ `test/gazebo_0177`: pHash 10, correlation 0.9116, equal-channel fraction 0.9194. Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.
+- `val/gazebo_0130` ↔ `test/gazebo_0178`: pHash 6, correlation 0.9273, equal-channel fraction 0.9276. Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.
+- `val/gazebo_0134` ↔ `test/gazebo_0182`: pHash 10, correlation 0.8039, equal-channel fraction 0.8531. Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.
+- `val/gazebo_0135` ↔ `test/gazebo_0183`: pHash 10, correlation 0.8738, equal-channel fraction 0.9030. Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.
+- `val/gazebo_0136` ↔ `test/gazebo_0184`: pHash 7, correlation 0.8045, equal-channel fraction 0.8581. Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.
+- `val/gazebo_0138` ↔ `test/gazebo_0186`: pHash 8, correlation 0.8926, equal-channel fraction 0.9241. Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.
+- `val/gazebo_0140` ↔ `test/gazebo_0188`: pHash 6, correlation 0.9727, equal-channel fraction 0.9710. Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.
+- `val/gazebo_0141` ↔ `test/gazebo_0189`: pHash 5, correlation 0.9692, equal-channel fraction 0.9707. Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.
+- `val/gazebo_0142` ↔ `test/gazebo_0190`: pHash 6, correlation 0.9657, equal-channel fraction 0.9718. Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.
+
+The simulator uses a shared static world/background across target trees. This is a remaining synthetic-domain limitation, but distinct tree groups do not share annotated leaf objects.

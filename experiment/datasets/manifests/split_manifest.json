@@ -1,0 +1,25 @@
+{
+  "counts": {
+    "test": {
+      "boxes": 958,
+      "images": 46
+    },
+    "train": {
+      "boxes": 3412,
+      "images": 144
+    },
+    "val": {
+      "boxes": 1516,
+      "images": 62
+    }
+  },
+  "group_splits": {
+    "gazebo_scene_g1_unknown": "train",
+    "gazebo_scene_tree_1": "train",
+    "gazebo_scene_tree_2": "train",
+    "gazebo_scene_tree_3": "val",
+    "gazebo_scene_tree_4": "test"
+  },
+  "method": "deterministic canonical source-group assignment",
+  "seed": 20260923
+}

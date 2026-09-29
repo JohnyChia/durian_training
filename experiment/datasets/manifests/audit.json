@@ -1,0 +1,480 @@
+{
+  "canonical": {
+    "boxes": 5886,
+    "images": 252,
+    "issues": [],
+    "pass": true
+  },
+  "classes": [
+    "leaf_algal",
+    "leaf_blight",
+    "leaf_colletotrichum",
+    "leaf_healthy",
+    "leaf_phomopsis",
+    "leaf_rhizoctonia"
+  ],
+  "excluded_boxes": 15,
+  "excluded_frames": 3,
+  "gates": {
+    "canonical_root_exists": true,
+    "decoded_cross_split_zero": true,
+    "exact_cross_split_zero": true,
+    "exclusions_documented": true,
+    "integrity_pass": true,
+    "legacy_real_boxes_absent": true,
+    "remaining_perceptual_candidates_investigated": true,
+    "six_class_mapping": true,
+    "source_group_leakage_zero": true,
+    "strong_perceptual_cross_split_zero": true,
+    "tree_camera_family_leakage_zero": true,
+    "yaml_paths_resolve": true
+  },
+  "integrity_issues": [],
+  "leakage": {
+    "decoded_pixel_cross_split": [],
+    "exact_cross_split": [],
+    "perceptual_candidates_le10": [
+      {
+        "equal_channel_fraction": 0.9112282986111111,
+        "investigation": "Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.",
+        "pair": [
+          "train/gazebo_0025",
+          "test/gazebo_0169"
+        ],
+        "phash_distance": 10,
+        "pixel_correlation": 0.9103410255008955,
+        "resolved_or_justified": true
+      },
+      {
+        "equal_channel_fraction": 0.789853515625,
+        "investigation": "Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.",
+        "pair": [
+          "train/gazebo_0029",
+          "test/gazebo_0173"
+        ],
+        "phash_distance": 6,
+        "pixel_correlation": 0.7589172925614371,
+        "resolved_or_justified": true
+      },
+      {
+        "equal_channel_fraction": 0.8208680555555555,
+        "investigation": "Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.",
+        "pair": [
+          "train/gazebo_0030",
+          "test/gazebo_0174"
+        ],
+        "phash_distance": 8,
+        "pixel_correlation": 0.7844620471858901,
+        "resolved_or_justified": true
+      },
+      {
+        "equal_channel_fraction": 0.8495713975694444,
+        "investigation": "Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.",
+        "pair": [
+          "train/gazebo_0041",
+          "test/gazebo_0185"
+        ],
+        "phash_distance": 9,
+        "pixel_correlation": 0.7861721814665644,
+        "resolved_or_justified": true
+      },
+      {
+        "equal_channel_fraction": 0.9321039496527778,
+        "investigation": "Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.",
+        "pair": [
+          "train/gazebo_0045",
+          "val/gazebo_0141"
+        ],
+        "phash_distance": 8,
+        "pixel_correlation": 0.8994233449941517,
+        "resolved_or_justified": true
+      },
+      {
+        "equal_channel_fraction": 0.9313498263888889,
+        "investigation": "Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.",
+        "pair": [
+          "train/gazebo_0045",
+          "test/gazebo_0189"
+        ],
+        "phash_distance": 9,
+        "pixel_correlation": 0.9032966952002486,
+        "resolved_or_justified": true
+      },
+      {
+        "equal_channel_fraction": 0.9546310763888889,
+        "investigation": "Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.",
+        "pair": [
+          "train/gazebo_0047",
+          "test/gazebo_0191"
+        ],
+        "phash_distance": 9,
+        "pixel_correlation": 0.9401291100864139,
+        "resolved_or_justified": true
+      },
+      {
+        "equal_channel_fraction": 0.830244140625,
+        "investigation": "Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.",
+        "pair": [
+          "train/gazebo_0078",
+          "test/gazebo_0174"
+        ],
+        "phash_distance": 9,
+        "pixel_correlation": 0.7907332371443146,
+        "resolved_or_justified": true
+      },
+      {
+        "equal_channel_fraction": 0.7584613715277778,
+        "investigation": "Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.",
+        "pair": [
+          "train/gazebo_0083",
+          "val/gazebo_0131"
+        ],
+        "phash_distance": 6,
+        "pixel_correlation": 0.7053289226033613,
+        "resolved_or_justified": true
+      },
+      {
+        "equal_channel_fraction": 0.8894520399305555,
+        "investigation": "Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.",
+        "pair": [
+          "train/gazebo_0084",
+          "val/gazebo_0132"
+        ],
+        "phash_distance": 7,
+        "pixel_correlation": 0.8534375171911963,
+        "resolved_or_justified": true
+      },
+      {
+        "equal_channel_fraction": 0.9286686197916667,
+        "investigation": "Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.",
+        "pair": [
+          "train/gazebo_0093",
+          "val/gazebo_0141"
+        ],
+        "phash_distance": 9,
+        "pixel_correlation": 0.8891092957157525,
+        "resolved_or_justified": true
+      },
+      {
+        "equal_channel_fraction": 0.7760362413194445,
+        "investigation": "Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.",
+        "pair": [
+          "val/gazebo_0124",
+          "test/gazebo_0172"
+        ],
+        "phash_distance": 6,
+        "pixel_correlation": 0.7526336410254536,
+        "resolved_or_justified": true
+      },
+      {
+        "equal_channel_fraction": 0.9193912760416667,
+        "investigation": "Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.",
+        "pair": [
+          "val/gazebo_0129",
+          "test/gazebo_0177"
+        ],
+        "phash_distance": 10,
+        "pixel_correlation": 0.9116325314190524,
+        "resolved_or_justified": true
+      },
+      {
+        "equal_channel_fraction": 0.9276410590277778,
+        "investigation": "Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.",
+        "pair": [
+          "val/gazebo_0130",
+          "test/gazebo_0178"
+        ],
+        "phash_distance": 6,
+        "pixel_correlation": 0.9272856561133687,
+        "resolved_or_justified": true
+      },
+      {
+        "equal_channel_fraction": 0.8530978732638889,
+        "investigation": "Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.",
+        "pair": [
+          "val/gazebo_0134",
+          "test/gazebo_0182"
+        ],
+        "phash_distance": 10,
+        "pixel_correlation": 0.8038591221645875,
+        "resolved_or_justified": true
+      },
+      {
+        "equal_channel_fraction": 0.9030013020833333,
+        "investigation": "Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.",
+        "pair": [
+          "val/gazebo_0135",
+          "test/gazebo_0183"
+        ],
+        "phash_distance": 10,
+        "pixel_correlation": 0.8738223488342216,
+        "resolved_or_justified": true
+      },
+      {
+        "equal_channel_fraction": 0.8580881076388889,
+        "investigation": "Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.",
+        "pair": [
+          "val/gazebo_0136",
+          "test/gazebo_0184"
+        ],
+        "phash_distance": 7,
+        "pixel_correlation": 0.8045480505534831,
+        "resolved_or_justified": true
+      },
+      {
+        "equal_channel_fraction": 0.9241427951388889,
+        "investigation": "Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.",
+        "pair": [
+          "val/gazebo_0138",
+          "test/gazebo_0186"
+        ],
+        "phash_distance": 8,
+        "pixel_correlation": 0.8926166452161265,
+        "resolved_or_justified": true
+      },
+      {
+        "equal_channel_fraction": 0.9710210503472222,
+        "investigation": "Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.",
+        "pair": [
+          "val/gazebo_0140",
+          "test/gazebo_0188"
+        ],
+        "phash_distance": 6,
+        "pixel_correlation": 0.9726784705450688,
+        "resolved_or_justified": true
+      },
+      {
+        "equal_channel_fraction": 0.9706618923611111,
+        "investigation": "Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.",
+        "pair": [
+          "val/gazebo_0141",
+          "test/gazebo_0189"
+        ],
+        "phash_distance": 5,
+        "pixel_correlation": 0.9692442817639376,
+        "resolved_or_justified": true
+      },
+      {
+        "equal_channel_fraction": 0.971787109375,
+        "investigation": "Different target-tree source groups rendered against a shared static simulator world; no exact/decoded identity and no shared annotated leaf source. Retained as a documented synthetic-background similarity, not source leakage.",
+        "pair": [
+          "val/gazebo_0142",
+          "test/gazebo_0190"
+        ],
+        "phash_distance": 6,
+        "pixel_correlation": 0.9657324863616147,
+        "resolved_or_justified": true
+      }
+    ],
+    "source_group_cross_split": {},
+    "strong_perceptual_le4": [],
+    "tree_camera_family_cross_split": {},
+    "unresolved_strong_perceptual": []
+  },
+  "legacy_collages_preserved_without_labels": 120,
+  "pass": true,
+  "real_unlabelled_whole_photographs": 141,
+  "reviewed_original_boxes": 5956,
+  "schema_version": 1,
+  "scope": "gazebo_official_real_annotation_pending",
+  "statistics": {
+    "gazebo": {
+      "test": {
+        "area_bins": [
+          49,
+          134,
+          220,
+          192,
+          237,
+          92,
+          16,
+          15,
+          3
+        ],
+        "aspect_ratio_bins": [
+          0,
+          3,
+          54,
+          217,
+          375,
+          242,
+          67
+        ],
+        "boxes": 958,
+        "boxes_per_image": {
+          "max": 31,
+          "mean": 20.82608695652174,
+          "median": 21.0,
+          "min": 9
+        },
+        "class_counts": [
+          133,
+          138,
+          47,
+          266,
+          274,
+          100
+        ],
+        "class_percentages": [
+          13.883089770354905,
+          14.405010438413361,
+          4.906054279749478,
+          27.76617954070981,
+          28.60125260960334,
+          10.438413361169102
+        ],
+        "images": 46,
+        "images_per_class": [
+          45,
+          46,
+          42,
+          46,
+          46,
+          46
+        ],
+        "labels": 46,
+        "short_side_bins": [
+          0,
+          146,
+          274,
+          284,
+          153,
+          78,
+          23
+        ],
+        "symmetric_aspect_gt10": 38
+      },
+      "train": {
+        "area_bins": [
+          179,
+          412,
+          569,
+          682,
+          967,
+          430,
+          121,
+          41,
+          11
+        ],
+        "aspect_ratio_bins": [
+          23,
+          57,
+          270,
+          806,
+          1173,
+          847,
+          236
+        ],
+        "boxes": 3412,
+        "boxes_per_image": {
+          "max": 38,
+          "mean": 23.694444444444443,
+          "median": 25.0,
+          "min": 10
+        },
+        "class_counts": [
+          292,
+          839,
+          658,
+          575,
+          654,
+          394
+        ],
+        "class_percentages": [
+          8.558030480656507,
+          24.58968347010551,
+          19.28487690504103,
+          16.852286049237982,
+          19.16764361078546,
+          11.547479484173506
+        ],
+        "images": 144,
+        "images_per_class": [
+          134,
+          144,
+          143,
+          144,
+          142,
+          140
+        ],
+        "labels": 144,
+        "short_side_bins": [
+          39,
+          393,
+          826,
+          1027,
+          598,
+          436,
+          93
+        ],
+        "symmetric_aspect_gt10": 135
+      },
+      "val": {
+        "area_bins": [
+          67,
+          199,
+          277,
+          306,
+          414,
+          169,
+          65,
+          12,
+          7
+        ],
+        "aspect_ratio_bins": [
+          3,
+          36,
+          122,
+          348,
+          518,
+          391,
+          98
+        ],
+        "boxes": 1516,
+        "boxes_per_image": {
+          "max": 33,
+          "mean": 24.451612903225808,
+          "median": 25.5,
+          "min": 9
+        },
+        "class_counts": [
+          267,
+          299,
+          159,
+          162,
+          377,
+          252
+        ],
+        "class_percentages": [
+          17.612137203166228,
+          19.722955145118732,
+          10.488126649076516,
+          10.686015831134565,
+          24.868073878627968,
+          16.622691292875988
+        ],
+        "images": 62,
+        "images_per_class": [
+          62,
+          62,
+          62,
+          62,
+          62,
+          62
+        ],
+        "labels": 62,
+        "short_side_bins": [
+          10,
+          178,
+          398,
+          458,
+          263,
+          171,
+          38
+        ],
+        "symmetric_aspect_gt10": 51
+      }
+    }
+  },
+  "status": "PASS \u2014 GAZEBO TRAINING READY / REAL ANNOTATION PENDING"
+}
