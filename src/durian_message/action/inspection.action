@@ -1,6 +1,0 @@
-int32 tree_id
----
-bool success
-string report
----
-float32 progress

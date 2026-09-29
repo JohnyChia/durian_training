@@ -1,8 +1,0 @@
-string tree_id
----
-string durian_type
-string disease_status
-float64 coverage
-float64 confidence
-string priority
-string remedy
