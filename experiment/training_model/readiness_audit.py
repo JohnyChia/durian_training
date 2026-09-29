@@ -10,7 +10,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-from candidate_runner import validate as validate_config
+from candidate_runner import FROZEN_SEEDS, materialize_dfine_config, materialize_yolo_dataset, validate as validate_config
 from common_evaluator import self_test as evaluator_self_test
 from controlled_common import CONTROL, DATASET, NAMES, dataset_records, read_json, sha256
 from prediction_adapter import adapt
@@ -39,13 +39,30 @@ def check_dataset():
 
 def check_configs():
     lock = read_json(CONTROL / "locks" / "control_lock.json")
+    configs = {}
     for name, digest in lock["configs"].items():
         path = CONTROL / "configs" / name
-        assert sha256(path) == digest; validate_config(path)
+        assert sha256(path) == digest
+        configs[path.stem] = validate_config(path)
     for name, digest in lock["native_configs"].items(): assert sha256(CONTROL / "native" / name) == digest
     for name, digest in lock["code"].items(): assert sha256(Path(__file__).parent / name) == digest
     dfine_native = (CONTROL / "native" / "dfine_n_custom.yml").read_text()
     assert "images/test" not in dfine_native and "instances_test" not in dfine_native
+    assert "remap_mscoco_category: true" in dfine_native
+    assert "epochs: 100" in dfine_native
+    assert "epoch: 88" in dfine_native and "stop_epoch: 88" in dfine_native
+    assert len(configs) == 4
+    assert all(c["training"]["epochs"] == 100 for c in configs.values())
+    assert all(c["training"]["seeds"] == FROZEN_SEEDS for c in configs.values())
+    assert all(c["training"]["early_stopping"]["enabled"] is False for c in configs.values())
+    with tempfile.TemporaryDirectory() as temp:
+        temp = Path(temp)
+        yolo_runtime = materialize_yolo_dataset(temp / "dataset.yaml").read_text()
+        assert "\ntest:" not in f"\n{yolo_runtime}"
+        dfine_output = temp / "outputs" / "dfine_n" / f"seed_{FROZEN_SEEDS[0]}"
+        dfine_runtime = materialize_dfine_config(temp / "dfine.yml", dfine_output).read_text()
+        assert str(dfine_output) in dfine_runtime
+        assert "images/test" not in dfine_runtime and "instances_test" not in dfine_runtime
 
 
 def check_test_guard():

@@ -22,15 +22,31 @@ present in its trainer view.
 
 | Candidate | Initialization | Input | Budget / batch | Optimizer and LR | Early stop |
 |---|---|---:|---|---|---|
-| YOLO26n | official YOLO26n COCO | 640 | 200 / 4, nominal 16 | AdamW, 1e-3, cosine | patience 40 |
-| YOLO26n-P2 | semantic YOLO26n transfer; new P2 random | 640 | same as YOLO26n | same as YOLO26n | patience 40 |
-| RF-DETR-N | official Nano COCO | native 384 | 200 / 4×4 accumulation | AdamW, 1e-4 | patience 40 |
-| D-FINE-N | official Nano COCO | native 640 | official 160 / 4 | AdamW, 2.5e-5 scaled | disabled; fixed official schedule |
+| YOLO26n | official YOLO26n COCO | 640 | fixed 100 / 4, nominal 16 | AdamW, 1e-3, cosine | disabled (`patience=0`) |
+| YOLO26n-P2 | semantic YOLO26n transfer; new P2 random | 640 | fixed 100 / 4, nominal 16 | AdamW, 1e-3, cosine | disabled (`patience=0`) |
+| RF-DETR-N | official Nano COCO | native 384 | fixed 100 / 4×4 accumulation | AdamW, 1e-4; step at epoch 80 | disabled (`early_stopping=False`) |
+| D-FINE-N | official Nano COCO | native 640 | fixed 100 / 4 | AdamW, 2.5e-5 scaled | disabled; fixed budget |
 
-Every candidate uses seeds 20260917, 20260923, and 20261001. The architecture-
-native RF-DETR resolution is a declared difference, not an unnoticed default.
-D-FINE uses its fixed upstream schedule and best-validation selection because
-its pinned trainer has no native early-stopping contract.
+Every candidate uses seeds 20260917, 20260923, and 20261001, for 12 controlled
+runs. All receive exactly 100 epochs; validation may select the best checkpoint,
+but cannot shorten a run. The architecture-native RF-DETR resolution is a
+declared difference, not an unnoticed default. RF-DETR's epoch-80 LR drop
+preserves the prior recipe's 160/200 (80%) schedule position using the pinned
+1.11.0 `lr_scheduler_kwargs` API.
+
+D-FINE preserves the upstream Nano recipe's 12-epoch final refinement stage:
+augmentation and multiscale collation stop at epoch 88 instead of 148. This is
+separate from its upstream `MultiStepLR` milestone 500, which remains unchanged
+and dormant, as it was in the 160-epoch recipe. Linear warmup remains 500
+optimizer steps. `remap_mscoco_category: true` maps the generated COCO category
+IDs 1–6 to D-FINE labels 0–5 during training and maps predictions back for COCO
+evaluation.
+
+The trainer inputs expose only train and validation. In particular, the runtime
+YOLO YAML removes the canonical YAML's `test:` entry, RF-DETR receives a view
+containing only `train/` and `valid/`, and D-FINE receives only train/val paths.
+The sealed test split is unavailable to training, tuning, early stopping,
+checkpoint selection, and sanity runs.
 
 No official YOLO26-P2 weights exist. `semantic_transfer_yolo26_p2.py` maps by
 graph role and then shape: backbone and P5→P3 neck are identical; later P4/P5

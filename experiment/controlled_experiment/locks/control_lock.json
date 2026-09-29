@@ -6,12 +6,12 @@
     "labels_tree_sha256": "a3ae12b53b325aad9c86af354ce782b14ced4bd8e22cc34730cd3688dcc6987d"
   },
   "configs": {
-    "dfine_n.json": "24cbe33e2af8738e786ea90b5ba318bcf34744b71ab1fc21d4bcb7ab3480f974",
-    "rfdetr_n.json": "34f1ebec1278a9faf3dacc8de497e584290f17fd8a5373c8e4931525108b4d6d",
-    "yolo26n.json": "12cdaea38c611c92ac25eff70cc2e2a0b117e78946c738e4f92e1f229d83fbdf",
-    "yolo26n_p2.json": "d9ef88573c8b14ede575e8311dae65c40fb67db4860bcdc0d669e64ef5fd01b9"
+    "dfine_n.json": "1975dc54719752348c3b58c9eac28679fe5fc4ea969296f8d8841d4abebf7125",
+    "rfdetr_n.json": "1faf8cfdcd3740ff2b70d9419a774af5383f12fc07e245e2ea5eb15c97cbddc6",
+    "yolo26n.json": "e83043db41cc3349d8dd2965ade79b25bfaf78ea79a8207c74130c1532968123",
+    "yolo26n_p2.json": "d47f0b0e89e00792dca7902e4058f81c2688d000b6ef3f24f8415c02c4f27f67"
   },
-  "native_configs": {"dfine_n_custom.yml": "a03927d66d325a36740f528bc23bdf0ebafd1c8c1365276acca0790f5e52dbc0"},
+  "native_configs": {"dfine_n_custom.yml": "5b917b259a518e8180b376c7c22acfabbf231fc7481ae42a945b7a3aad42d9f1"},
   "code": {
     "build_coco_view.py": "3224620846528e43546507a0ca673f87fb9f4a90b018609c04f1753bfad70007",
     "verify_coco_view.py": "af289357e12b293cb84b6af631d0296086ca5729e59d1dd4f3da8f569304ede1",
@@ -19,7 +19,8 @@
     "prediction_adapter.py": "b3e6d44a87e48d0266c27d9c95a2a769689dcd60026af059904e323b792cd365",
     "test_guard.py": "3c238a9d951e40a1c3e0e4188239d62481eae0d01c18379516d0784a228a2358",
     "semantic_transfer_yolo26_p2.py": "dd8efb9ed0afccd6ea575937c8554db312fe8b3ea9bd04403e0b07f669e16331",
-    "candidate_runner.py": "cdad5bf85b2d8561bff2878291b25cc957d8f1111f7fb25f69ef2e81a48e4a58"
+    "candidate_runner.py": "9adfd1fd9112dedf9f6208dca74a28f49c3fc400a79c3e0a9d46058c1edaa2d3",
+    "readiness_audit.py": "d3ae6a94feb289a7212abbaa2ea2cba23704ee67756257bb4c3968974e87d1dd"
   },
   "generated_evidence": {
     "coco_manifest.json": "c670e6441ec1137718aab382e9235692992fb31d1989deb81d14ccdb9fc0cca3",

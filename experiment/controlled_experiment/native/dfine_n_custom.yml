@@ -7,8 +7,8 @@ __include__:
 
 output_dir: __DURIAN_OUTPUT_DIR__
 num_classes: 6
-remap_mscoco_category: false
-epochs: 160
+remap_mscoco_category: true
+epochs: 100
 
 DFINE: {backbone: HGNetv2}
 HGNetv2: {name: B0, return_idx: [2, 3], freeze_at: -1, freeze_norm: false, use_lab: true}
@@ -31,8 +31,8 @@ train_dataloader:
     img_folder: __DURIAN_TRAIN_IMAGES__
     ann_file: __DURIAN_TRAIN_ANNOTATIONS__
     transforms:
-      policy: {epoch: 148}
-  collate_fn: {stop_epoch: 148, ema_restart_decay: 0.9999, base_size_repeat: null}
+      policy: {epoch: 88}
+  collate_fn: {stop_epoch: 88, ema_restart_decay: 0.9999, base_size_repeat: null}
 
 val_dataloader:
   total_batch_size: 4
