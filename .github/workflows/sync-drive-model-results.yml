@@ -34,7 +34,7 @@ jobs:
           OUT="$RUNNER_TEMP/durian_models_sync"
           rm -rf "$OUT"
           mkdir -p "$OUT"
-          python -m gdown --folder "$DRIVE_URL" -O "$OUT"
+          python -m gdown --folder "$DRIVE_URL" -O "$OUT"\n          # Colab-native notebook is not included by gdown folder recursion; fetch it explicitly.\n          python -m gdown "https://drive.google.com/uc?id=1Ru8SbUj_d8A6wf2fDB5Ro5hYMmTuDLbf" -O "$OUT/fyp (training).ipynb"
 
           SRC="$OUT"
           if [ -d "$OUT/durian_models" ]; then
