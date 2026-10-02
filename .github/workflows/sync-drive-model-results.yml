@@ -1,0 +1,106 @@
+name: One-shot sync Google Drive model results
+
+on:
+  push:
+    paths:
+      - ".github/workflows/sync-drive-model-results.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Google Drive downloader
+        run: python -m pip install --disable-pip-version-check --quiet gdown
+
+      - name: Download Drive folder
+        shell: bash
+        run: |
+          set -euo pipefail
+          DRIVE_URL="https://drive.google.com/drive/folders/1FfUpeKlyWUUa_F0aA2FZyzhxxDCKm0wG?usp=drive_link"
+          OUT="$RUNNER_TEMP/durian_models_sync"
+          rm -rf "$OUT"
+          mkdir -p "$OUT"
+          python -m gdown --folder "$DRIVE_URL" -O "$OUT" --remaining-ok
+
+          SRC="$OUT"
+          if [ -d "$OUT/durian_models" ]; then
+            SRC="$OUT/durian_models"
+          fi
+
+          for p in "fyp (training).ipynb" dfine_n rfdetr_n yolo26n_p2 yolo26n; do
+            if [ ! -e "$SRC/$p" ]; then
+              echo "Missing expected Drive item: $p" >&2
+              find "$OUT" -maxdepth 3 -type f | sort | sed -n '1,200p'
+              exit 1
+            fi
+          done
+
+          COUNT="$(find "$SRC" -type f | wc -l | tr -d ' ')"
+          echo "Downloaded file count: $COUNT"
+          if [ "$COUNT" -lt 73 ]; then
+            echo "Expected at least 73 files from Drive, got $COUNT" >&2
+            exit 1
+          fi
+
+          echo "SYNC_SRC=$SRC" >> "$GITHUB_ENV"
+
+      - name: Install and configure Git LFS
+        shell: bash
+        run: |
+          set -euo pipefail
+          git lfs version
+          git lfs install --local
+          git lfs track "*.pt"
+          git lfs track "*.pth"
+
+      - name: Mirror Drive contents into repository root
+        shell: bash
+        run: |
+          set -euo pipefail
+          SRC="$SYNC_SRC"
+
+          rm -rf dfine_n rfdetr_n yolo26n_p2 yolo26n
+          cp -a "$SRC/dfine_n" .
+          cp -a "$SRC/rfdetr_n" .
+          cp -a "$SRC/yolo26n_p2" .
+          cp -a "$SRC/yolo26n" .
+          cp -f "$SRC/fyp (training).ipynb" "./fyp (training).ipynb"
+
+          test -f "rfdetr_n/result/best.pth"
+          test -f "rfdetr_n/result/last.pth"
+          test -f "dfine_n/result/best.pth"
+          test -f "yolo26n/result/results.csv"
+
+      - name: Commit and push synchronized results
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add .gitattributes "fyp (training).ipynb" dfine_n rfdetr_n yolo26n_p2 yolo26n
+
+          echo "Files staged:"
+          git status --short
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Sync model training results from Google Drive"
+          git push origin HEAD:main
