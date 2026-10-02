@@ -34,7 +34,7 @@ jobs:
           OUT="$RUNNER_TEMP/durian_models_sync"
           rm -rf "$OUT"
           mkdir -p "$OUT"
-          python -m gdown --folder "$DRIVE_URL" -O "$OUT" --remaining-ok
+          python -m gdown --folder "$DRIVE_URL" -O "$OUT"
 
           SRC="$OUT"
           if [ -d "$OUT/durian_models" ]; then
