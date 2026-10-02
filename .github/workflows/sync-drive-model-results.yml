@@ -34,17 +34,46 @@ jobs:
           OUT="$RUNNER_TEMP/durian_models_sync"
           rm -rf "$OUT"
           mkdir -p "$OUT"
-          python -m gdown --folder "$DRIVE_URL" -O "$OUT"\n          # Colab-native notebook is not included by gdown folder recursion; fetch it explicitly.\n          python -m gdown "https://drive.google.com/uc?id=1Ru8SbUj_d8A6wf2fDB5Ro5hYMmTuDLbf" -O "$OUT/fyp (training).ipynb"
+
+          # gdown can occasionally fail one file after many Drive requests.
+          # Retry the folder download while preserving already downloaded files.
+          ok=0
+          for attempt in 1 2 3; do
+            echo "Drive folder download attempt $attempt"
+            if python -m gdown --folder "$DRIVE_URL" -O "$OUT"; then
+              ok=1
+              break
+            fi
+            sleep $((attempt * 5))
+          done
+
+          # Colab-native notebook is not always returned by recursive folder download.
+          for attempt in 1 2 3; do
+            if python -m gdown "https://drive.google.com/uc?id=1Ru8SbUj_d8A6wf2fDB5Ro5hYMmTuDLbf" -O "$OUT/fyp (training).ipynb"; then
+              break
+            fi
+            sleep $((attempt * 5))
+          done
 
           SRC="$OUT"
           if [ -d "$OUT/durian_models" ]; then
             SRC="$OUT/durian_models"
           fi
 
+          # Repair the two tiny YAML files explicitly if Drive throttled them
+          # during folder recursion.
+          mkdir -p "$SRC/yolo26n/result" "$SRC/yolo26n_p2/result"
+          if [ ! -s "$SRC/yolo26n/result/args.yaml" ]; then
+            python -m gdown "https://drive.google.com/uc?id=1R0tZfldHT6sUVhptT6rGuRsN14JGu0Ja" -O "$SRC/yolo26n/result/args.yaml"
+          fi
+          if [ ! -s "$SRC/yolo26n_p2/result/args.yaml" ]; then
+            python -m gdown "https://drive.google.com/uc?id=1Ryi7G_l00KFuqLgB3f4bcw6dGNdz3cj8" -O "$SRC/yolo26n_p2/result/args.yaml"
+          fi
+
           for p in "fyp (training).ipynb" dfine_n rfdetr_n yolo26n_p2 yolo26n; do
             if [ ! -e "$SRC/$p" ]; then
               echo "Missing expected Drive item: $p" >&2
-              find "$OUT" -maxdepth 3 -type f | sort | sed -n '1,200p'
+              find "$OUT" -maxdepth 4 -type f | sort | sed -n '1,250p'
               exit 1
             fi
           done
@@ -53,6 +82,7 @@ jobs:
           echo "Downloaded file count: $COUNT"
           if [ "$COUNT" -lt 73 ]; then
             echo "Expected at least 73 files from Drive, got $COUNT" >&2
+            find "$SRC" -type f | sort
             exit 1
           fi
 
@@ -83,7 +113,11 @@ jobs:
           test -f "rfdetr_n/result/best.pth"
           test -f "rfdetr_n/result/last.pth"
           test -f "dfine_n/result/best.pth"
+          test -f "dfine_n/result/last.pth"
+          test -f "yolo26n/result/weights/best.pt"
+          test -f "yolo26n_p2/result/weights/best.pt"
           test -f "yolo26n/result/results.csv"
+          test -f "yolo26n_p2/result/results.csv"
 
       - name: Commit and push synchronized results
         shell: bash
