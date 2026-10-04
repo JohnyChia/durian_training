@@ -1,0 +1,18 @@
+{
+  "best.pth": "91796527ad5996d6ba4a2242132740741460290dc37bd891ae4691bbe31ceffd",
+  "environment_manifest.json": "270e42a518d7ef49e5ab83b9060a1b14792949840efc3016ba6be83f7ab1e320",
+  "experiment_spec.json": "1a186efd7694ea87db5effbb90e454e19965315157de9253e2133ebb090edc6f",
+  "frozen_rf_validation_predictions.csv": "1bae982dc949aba3e4917fc581922608311342c20334938f5451d07f42a78807",
+  "gate_result.json": "04e33c33fcf16edc4ecb9161538306ac4585321d9de4a2c1ecdba9889d03efef",
+  "last.pth": "87d8ee519fbcecfdfb04c1e85d3fafc4a25d028dd4f4537dffa2e54cf3d15500",
+  "metrics.csv": "80d7b06d60e16662a86b2c8425869d9d0650ef7998ace9d9fe1d96fb04e6deb8",
+  "recipe_diff.json": "5a5bbcf12a93c347acadc65a1820f1978047613a13104c10004595dfaf0b2ae5",
+  "results.csv": "80d7b06d60e16662a86b2c8425869d9d0650ef7998ace9d9fe1d96fb04e6deb8",
+  "rf_a_validation_predictions.csv": "0c64821eebfbf43e90cb3244d7dbd7aaad1164a60eb28336ed4dc16463244775",
+  "runtime_criterion_audit.json": "50e09daff9fd44149439a29cadce7af030f0e884cd301e6fc0f707c6d7bb8f9e",
+  "training_config.json": "fe7959356df2f34cdbd1c3bdc761d93c661afb37ea2a0747547814cdc0cae3c9",
+  "training_history.csv": "3ac9ef7c9ff25eda5d65bde547da362d42eb1e9205f54d8c6525debd8076ec6a",
+  "training_log.txt": "a38841543c4e3f9a2580d8ce99d22b831e7a3d92c316236f2e6abb08bfd19885",
+  "unified_validation_frozen_rf.json": "a2b47bd51f85ca2c0343725ef1b779c6fffb6181588b112d4ad55cb7937c8a00",
+  "unified_validation_rf_a.json": "2f172c43a86c93d306a7cb946b25f663e7ee14a161e69fc19b166843b5804b97"
+}

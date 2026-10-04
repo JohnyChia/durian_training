@@ -50,6 +50,12 @@ experiment/*
 !experiment/datasets/
 !experiment/controlled_experiment/
 !experiment/training_model/
+!experiment/analysis/
+experiment/analysis/*
+!experiment/analysis/rfdetr_remediation/
+experiment/analysis/rfdetr_remediation/*
+!experiment/analysis/rfdetr_remediation/rf_a_training/
+!experiment/analysis/rfdetr_remediation/rf_a_training/**
 
 experiment/datasets/*
 !experiment/datasets/README.md

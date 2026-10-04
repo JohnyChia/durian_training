@@ -1,0 +1,11 @@
+{
+  "differences": [
+    {
+      "baseline": 1.0,
+      "candidate": 2.0,
+      "path": "cls_loss_coef"
+    }
+  ],
+  "scientific_variable_count": 1,
+  "status": "PASS"
+}

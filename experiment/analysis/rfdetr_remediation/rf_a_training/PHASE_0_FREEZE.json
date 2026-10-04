@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "phase": "PHASE_0_EVIDENCE_FREEZE",
+  "model_family": "RF-DETR-N",
+  "experiment_id": "rf_a_clscoef2_seed20260917_v1",
+  "successful_run": "rf_a_clscoef2_seed20260917_v1_20261003T131825Z",
+  "status": "RF_A_REJECTED_NOT_FIXED",
+  "gate_verdict": "NOT_FIXED",
+  "scientific_change": {
+    "path": "cls_loss_coef",
+    "baseline": 1.0,
+    "candidate": 2.0,
+    "variable_count": 1
+  },
+  "source": {
+    "provider": "Google Drive",
+    "folder_id": "1VGOqM_lKOPWkmmQihaXWhpKa5LnWWO7H",
+    "downloaded_file_count": 26,
+    "successful_run_file_count": 24
+  },
+  "integrity": {
+    "declared_required_artifacts": 16,
+    "declared_artifact_hashes_verified": 16,
+    "declared_artifact_hash_verdict": "PASS",
+    "completed_marker": "RF_A_SINGLE_RUN_COMPLETE",
+    "drive_copy_verification": "PASS"
+  },
+  "additional_preserved_artifacts_sha256": {
+    "COMPLETED": "e3f578f647f37cc10facf782545c5a1c6e7ca84884ac8a80d23b64038c81a916",
+    "DRIVE_COPY_VERIFIED.json": "7d6e021d0faf3940fef6446adc46de5d11863824aa729a465f777660aee91959",
+    "RUN_STARTED.json": "5b7926b2737a5f51fddf06cbd4e00391ea1e2e97b07d9631466a159d40785ace",
+    "checkpoint_best_ema.pth": "a7bfef4424d4f441972c28906f7bbe4e9ecb7c37ae8d300a44e49504a35f3b82",
+    "events.out.tfevents.1791033571.b08bb55ac74f.24320.0": "ad33d9f8f3223109374ccd7d054ad7ddc84549cd0f0258226f8778ca7f975d40",
+    "hash_manifest.json": "6cd4edda8d55ea6eefea79f2652dbdc05d7a1ae81f10c7ef3dae6c292285d773",
+    "hparams.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+    "last.ckpt": "fc4d12646029fc94f7a01b85a42645705d0b37ce6b23dfa0afa50c7f32dde3c0"
+  },
+  "incomplete_attempt_markers_sha256": {
+    "rf_a_clscoef2_seed20260917_v1_20261003T120702Z/RUN_STARTED.json": "d0c7485d4bd5fe8ec27312400acf2eb598b3b43ae492925c33d6e9d6d1086a7d",
+    "rf_a_clscoef2_seed20260917_v1_20261003T131359Z/RUN_STARTED.json": "7c9b0d015251f078e064fb9fa4ea52301c40a61baef6acf34086e80cd5cb2a77"
+  },
+  "training_performed_during_freeze": false,
+  "sealed_test_accessed_during_freeze": false
+}

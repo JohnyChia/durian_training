@@ -1,0 +1,40 @@
+{
+  "checks": {
+    "all_auxiliary_classification_are_2": true,
+    "bbox_giou_unchanged": true,
+    "matcher_unchanged": true,
+    "primary_loss_ce_is_2": true
+  },
+  "classification_keys": {
+    "loss_ce": 2.0,
+    "loss_ce_0": 2.0,
+    "loss_ce_enc": 2.0
+  },
+  "matcher": {
+    "_compile_l1_cost": false,
+    "_compiled_l1_cost": null,
+    "_is_full_backward_hook": null,
+    "_warned_non_finite_costs": false,
+    "cost_bbox": 5.0,
+    "cost_class": 2.0,
+    "cost_giou": 2.0,
+    "cost_mask_ce": 1,
+    "cost_mask_dice": 1,
+    "focal_alpha": 0.25,
+    "keypoint_findable_loss_coef": 0,
+    "keypoint_l1_loss_coef": 0,
+    "keypoint_nll_loss_coef": 0,
+    "keypoint_visible_loss_coef": 0,
+    "mask_point_sample_ratio": 16,
+    "training": true
+  },
+  "non_classification_weights": {
+    "loss_bbox": 5.0,
+    "loss_bbox_0": 5.0,
+    "loss_bbox_enc": 5.0,
+    "loss_giou": 2.0,
+    "loss_giou_0": 2.0,
+    "loss_giou_enc": 2.0
+  },
+  "status": "PASS"
+}

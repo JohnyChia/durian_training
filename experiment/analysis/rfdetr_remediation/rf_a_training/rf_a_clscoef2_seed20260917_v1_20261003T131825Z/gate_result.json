@@ -1,0 +1,24 @@
+{
+  "all_conjunctive": true,
+  "checks": {
+    "algal_auc": false,
+    "algal_f1": true,
+    "algal_iqr_overlap": false,
+    "algal_median_gap": false,
+    "algal_recall": true,
+    "algal_tp_median": false,
+    "all_classes_have_tp": true,
+    "background_fp": true,
+    "dominant_class_fraction": true,
+    "leaf_blight_stability": true,
+    "leaf_colletotrichum_stability": true,
+    "leaf_healthy_stability": true,
+    "leaf_phomopsis_stability": true,
+    "leaf_rhizoctonia_stability": true,
+    "macro_f1": true,
+    "map50_95": true,
+    "other_five_mean_f1": true,
+    "wrong_class_rate": true
+  },
+  "verdict": "NOT_FIXED"
+}

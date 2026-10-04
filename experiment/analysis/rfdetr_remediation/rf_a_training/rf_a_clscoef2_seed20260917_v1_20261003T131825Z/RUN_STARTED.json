@@ -1,0 +1,11 @@
+{
+  "experiment_id": "rf_a_clscoef2_seed20260917_v1",
+  "timestamp_utc": "20261003T131825Z",
+  "status": "RUNNING",
+  "scientific_variable": {
+    "cls_loss_coef": [
+      1.0,
+      2.0
+    ]
+  }
+}

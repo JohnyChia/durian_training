@@ -1,0 +1,108 @@
+{
+  "baseline_recipe": {
+    "architecture": "RFDETRNano",
+    "batch_size": 4,
+    "cls_loss_coef": 1.0,
+    "early_stopping": false,
+    "epochs": 100,
+    "expanded_scales": true,
+    "grad_accum_steps": 4,
+    "lr": 0.0001,
+    "lr_encoder": 0.00015,
+    "lr_scheduler": "step",
+    "lr_scheduler_interval": "step",
+    "lr_scheduler_kwargs": {
+      "lr_drop": 80
+    },
+    "multi_scale": true,
+    "optimizer": "adamw",
+    "resolution": 384,
+    "seed": 20260917,
+    "square_resize_div_64": true,
+    "use_ema": true,
+    "warmup_epochs": 0.0,
+    "weight_decay": 0.0001
+  },
+  "candidate_recipe": {
+    "architecture": "RFDETRNano",
+    "batch_size": 4,
+    "cls_loss_coef": 2.0,
+    "early_stopping": false,
+    "epochs": 100,
+    "expanded_scales": true,
+    "grad_accum_steps": 4,
+    "lr": 0.0001,
+    "lr_encoder": 0.00015,
+    "lr_scheduler": "step",
+    "lr_scheduler_interval": "step",
+    "lr_scheduler_kwargs": {
+      "lr_drop": 80
+    },
+    "multi_scale": true,
+    "optimizer": "adamw",
+    "resolution": 384,
+    "seed": 20260917,
+    "square_resize_div_64": true,
+    "use_ema": true,
+    "warmup_epochs": 0.0,
+    "weight_decay": 0.0001
+  },
+  "class_names": [
+    "leaf_algal",
+    "leaf_blight",
+    "leaf_colletotrichum",
+    "leaf_healthy",
+    "leaf_phomopsis",
+    "leaf_rhizoctonia"
+  ],
+  "dataset": {
+    "manifest_sha256": "c9b9ef056d7f1b43b70bd7169dcba2f87f506f97ab2cfff93a8232b54b535a0b",
+    "materialized_splits": [
+      "train",
+      "val"
+    ],
+    "sealed_test": "UNAVAILABLE",
+    "split_manifest_sha256": "6e2fcc765a548045c192c8969c909486a908db770341236f5fd960143b176fdc",
+    "train_annotations_sha256": "32876072c95b25edd04408f7d613bf286d6c37d6e241071c7737cf529a4889c0",
+    "train_images_tree_sha256": "03d6cc8fce088246d528df74e8e777adfdddee09c9d17f162787c4327da1349d",
+    "val_annotations_sha256": "eb938039ee6a17657714fd2133dbbffff580876815be2603104931a04e532ae1",
+    "val_images_tree_sha256": "16d0ceb38af91f8b7fc276b4828dab827ddadc5fdfe5d46fb6c4f52680a7f385"
+  },
+  "experiment_id": "rf_a_clscoef2_seed20260917_v1",
+  "formal_threshold": 0.3,
+  "framework": {
+    "package": "rfdetr",
+    "source_commit": "d96d6ff9303ec5af7bb8f73e83f0f04ecb6ef728",
+    "version": "1.11.0",
+    "wheel_sha256": "8ba29e551d74e03f146066ece12f29ec4eb6795b0348bd257c4b16a87eca7cff"
+  },
+  "frozen_deployed_checkpoint": {
+    "artifact_commit": "00e24dbc2aa9b9f7258e178ce25317fba4fa630e",
+    "artifact_repo_path": "rfdetr_n/result/best.pth",
+    "sha256": "866de52aa0194f1dc44e1775673507d027ddfa43d71a48c444f8c72817c50bd9"
+  },
+  "gates": {
+    "algal_auc_min": 0.675477,
+    "algal_f1_strict_min": 0.092219,
+    "algal_iqr_overlap_max": 0.302267,
+    "algal_median_gap_min": 0.040392,
+    "algal_recall_min": 0.074906,
+    "algal_tp_median_min": 0.150959,
+    "background_fp_max": 721,
+    "dominant_class_fraction_max": 0.5,
+    "macro_f1_min": 0.24064,
+    "map50_95_min": 0.076303,
+    "other_five_mean_f1_min": 0.271246,
+    "wrong_class_rate_max": 0.580167
+  },
+  "initial_checkpoint": {
+    "bytes": 366287238,
+    "file": "rf-detr-nano.pth",
+    "sha256": "d8d6b9ee57d4d0ed2b1f305163624712a0532cb7bce0c747317984fc5457440d",
+    "source": "https://storage.googleapis.com/rfdetr/nano_coco/checkpoint_best_regular.pth"
+  },
+  "note": "Each non-Algal class must reach at least 85% of frozen RF F1 computed from the identical frozen-RF export and evaluator.",
+  "prediction_floor": 0.0,
+  "repository_commit": "50acad48ec5f17202ddc433e6c9f83cf07aa07ed",
+  "schema_version": 1
+}

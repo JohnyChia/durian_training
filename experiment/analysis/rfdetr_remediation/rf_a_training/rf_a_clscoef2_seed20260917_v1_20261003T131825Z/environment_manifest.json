@@ -1,0 +1,19 @@
+{
+  "checks": {
+    "dataset_manifest": true,
+    "sealed_test_absent": true,
+    "split_manifest": true,
+    "train_annotations": true,
+    "train_images": true,
+    "val_annotations": true,
+    "val_images": true
+  },
+  "frozen_checkpoint_sha256": "866de52aa0194f1dc44e1775673507d027ddfa43d71a48c444f8c72817c50bd9",
+  "gpu": "Tesla T4",
+  "initial_checkpoint_sha256": "d8d6b9ee57d4d0ed2b1f305163624712a0532cb7bce0c747317984fc5457440d",
+  "python": "3.13.15",
+  "rfdetr": "1.11.0",
+  "sealed_test_accessed": false,
+  "status": "PASS",
+  "torch": "2.11.0+cu130"
+}
