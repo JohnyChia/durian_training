@@ -20,8 +20,12 @@ jobs:
           ref: model-synthetic-and-hybrid
           fetch-depth: 0
 
-      - name: Install gdown
-        run: python -m pip install --quiet gdown
+      - name: Install Git LFS and gdown
+        shell: bash
+        run: |
+          set -euo pipefail
+          git lfs install
+          python -m pip install --quiet gdown
 
       - name: Download verified final models from Google Drive
         shell: bash
@@ -42,7 +46,8 @@ jobs:
           test "$(stat -c%s models_8run/model1_yolo26n_synthetic/best.pt)" = "5410757"
           test "$(stat -c%s models_8run/model2_yolo26n_hybrid/best.pt)" = "5411269"
 
-          sha256sum models_8run/model1_yolo26n_synthetic/best.pt                     models_8run/model2_yolo26n_hybrid/best.pt
+          echo "b7e221be1716737941f9ac0bfeab832e6fce67f405a1d0f133287ce84e2b4ef0  models_8run/model1_yolo26n_synthetic/best.pt" | sha256sum -c -
+          echo "803ede7ce9451bd3e910358f176798861e549e3c139fe78e67023c6317e5319b  models_8run/model2_yolo26n_hybrid/best.pt" | sha256sum -c -
 
       - name: Write model manifest
         shell: bash
