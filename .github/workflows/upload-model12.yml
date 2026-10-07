@@ -30,9 +30,9 @@ jobs:
           mkdir -p models_8run/model1_yolo26n_synthetic
           mkdir -p models_8run/model2_yolo26n_hybrid
 
-          gdown --id 1_YSu-kzkYI6W2VhWjnzfZiMC3zxi_bG-             -O models_8run/model1_yolo26n_synthetic/best.pt
+          gdown 1_YSu-kzkYI6W2VhWjnzfZiMC3zxi_bG- -O models_8run/model1_yolo26n_synthetic/best.pt
 
-          gdown --id 1BFjJMmwkTeZizoW6VpDMGoV2wOqUNEj-             -O models_8run/model2_yolo26n_hybrid/best.pt
+          gdown 1BFjJMmwkTeZizoW6VpDMGoV2wOqUNEj- -O models_8run/model2_yolo26n_hybrid/best.pt
 
       - name: Verify model files
         shell: bash
