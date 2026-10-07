@@ -1,0 +1,75 @@
+name: Upload completed Run 01 and Run 02 models
+
+on:
+  push:
+    branches:
+      - model-synthetic-and-hybrid
+    paths:
+      - .github/workflows/upload-model12.yml
+
+permissions:
+  contents: write
+
+jobs:
+  upload-models:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout model branch
+        uses: actions/checkout@v4
+        with:
+          ref: model-synthetic-and-hybrid
+          fetch-depth: 0
+
+      - name: Install gdown
+        run: python -m pip install --quiet gdown
+
+      - name: Download verified final models from Google Drive
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p models_8run/model1_yolo26n_synthetic
+          mkdir -p models_8run/model2_yolo26n_hybrid
+
+          gdown --id 1_YSu-kzkYI6W2VhWjnzfZiMC3zxi_bG-             -O models_8run/model1_yolo26n_synthetic/best.pt
+
+          gdown --id 1BFjJMmwkTeZizoW6VpDMGoV2wOqUNEj-             -O models_8run/model2_yolo26n_hybrid/best.pt
+
+      - name: Verify model files
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          test "$(stat -c%s models_8run/model1_yolo26n_synthetic/best.pt)" = "5410757"
+          test "$(stat -c%s models_8run/model2_yolo26n_hybrid/best.pt)" = "5411269"
+
+          sha256sum models_8run/model1_yolo26n_synthetic/best.pt                     models_8run/model2_yolo26n_hybrid/best.pt
+
+      - name: Write model manifest
+        shell: bash
+        run: |
+          cat > models_8run/README.md <<'EOF'
+          # Completed 8-run Study Models
+
+          This branch stores completed final model artifacts separately from the training/code branch.
+
+          | Run | Architecture | Condition | Artifact |
+          | --- | --- | --- | --- |
+          | 01 | YOLO26n | Synthetic-only | `model1_yolo26n_synthetic/best.pt` |
+          | 02 | YOLO26n | Hybrid | `model2_yolo26n_hybrid/best.pt` |
+
+          Run 03 and later models should only be added after their controlled training run is complete.
+          EOF
+
+      - name: Commit model artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "JohnyChia"
+          git config user.email "157824463+JohnyChia@users.noreply.github.com"
+          git add models_8run
+          if git diff --cached --quiet; then
+            echo "Model files already present; nothing to commit."
+            exit 0
+          fi
+          git commit -m "Add completed Run 01 and Run 02 models"
+          git push origin model-synthetic-and-hybrid
