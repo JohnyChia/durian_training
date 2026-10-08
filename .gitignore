@@ -136,3 +136,9 @@ Function
 
 # Gazebo large textures
 src/durian_inspection_pkg/config/textures/
+
+
+# Formal 8-run final models
+!models_8run/
+!models_8run/**
+!models_8run/**/*.pt
