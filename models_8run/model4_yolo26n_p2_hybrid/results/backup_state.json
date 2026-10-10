@@ -1,0 +1,12 @@
+{
+  "run_number": 4,
+  "architecture": "yolo26n_p2",
+  "condition": "hybrid",
+  "seed": 20260917,
+  "completed_epoch": 200,
+  "target_epochs": 200,
+  "initial_checkpoint": "/content/durian_v4_1_8run_runtime/checkpoints/yolo26n_p2_best.pt",
+  "initial_checkpoint_sha256": "bb7a90077435560d07172b0562acf6d89dbd9f080afc5d1d489157a3dd3d84fd",
+  "gpu": "Tesla T4",
+  "timestamp_utc": "2026-10-07T14:10:41.692515+00:00"
+}
