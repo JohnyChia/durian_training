@@ -1,0 +1,23 @@
+{
+  "model": 3,
+  "architecture": "YOLO26n-P2",
+  "training_condition": "synthetic_only",
+  "source_csv": "models_8run/model3_yolo26n_p2_synthetic/results/results.csv",
+  "metrics_domain": "validation (not sealed test)",
+  "reported_epoch_count": 200,
+  "first_logged_completed_epoch": 1,
+  "last_logged_completed_epoch": 200,
+  "final_validation": {
+    "precision": 0.81249,
+    "recall": 0.58929,
+    "mAP50": 0.6891,
+    "mAP50_95": 0.49716,
+    "F1": 0.6831203642511664
+  },
+  "best_validation_mAP50_95": {
+    "epoch": 181,
+    "value": 0.50604
+  },
+  "f1_definition": "derived harmonic mean of logged precision and recall; NOT YOLO F1-confidence curve",
+  "notes": null
+}

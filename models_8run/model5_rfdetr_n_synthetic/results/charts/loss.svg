@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="475" viewBox="0 0 1000 475">
+<rect width="1000" height="475" fill="#fbfcff"/>
+<text x="78" y="35" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="#172333">Model 5 | RF-DETR Nano | Synthetic | Logged loss</text>
+<text x="78" y="60" font-family="Arial,sans-serif" font-size="12" fill="#536074">Train loss only; no validation loss series present in selected CSV</text>
+<line x1="78" y1="400.00" x2="968" y2="400.00" stroke="#dce3ec" stroke-width="1"/>
+<text x="68" y="404.00" text-anchor="end" font-family="Arial" font-size="11" fill="#495668">0.00</text>
+<line x1="78" y1="338.00" x2="968" y2="338.00" stroke="#dce3ec" stroke-width="1"/>
+<text x="68" y="342.00" text-anchor="end" font-family="Arial" font-size="11" fill="#495668">0.84</text>
+<line x1="78" y1="276.00" x2="968" y2="276.00" stroke="#dce3ec" stroke-width="1"/>
+<text x="68" y="280.00" text-anchor="end" font-family="Arial" font-size="11" fill="#495668">1.67</text>
+<line x1="78" y1="214.00" x2="968" y2="214.00" stroke="#dce3ec" stroke-width="1"/>
+<text x="68" y="218.00" text-anchor="end" font-family="Arial" font-size="11" fill="#495668">2.51</text>
+<line x1="78" y1="152.00" x2="968" y2="152.00" stroke="#dce3ec" stroke-width="1"/>
+<text x="68" y="156.00" text-anchor="end" font-family="Arial" font-size="11" fill="#495668">3.35</text>
+<line x1="78" y1="90.00" x2="968" y2="90.00" stroke="#dce3ec" stroke-width="1"/>
+<text x="68" y="94.00" text-anchor="end" font-family="Arial" font-size="11" fill="#495668">4.18</text>
+<text x="78.00" y="424" text-anchor="middle" font-family="Arial" font-size="11" fill="#495668">151</text>
+<text x="256.00" y="424" text-anchor="middle" font-family="Arial" font-size="11" fill="#495668">161</text>
+<text x="434.00" y="424" text-anchor="middle" font-family="Arial" font-size="11" fill="#495668">171</text>
+<text x="612.00" y="424" text-anchor="middle" font-family="Arial" font-size="11" fill="#495668">180</text>
+<text x="790.00" y="424" text-anchor="middle" font-family="Arial" font-size="11" fill="#495668">190</text>
+<text x="968.00" y="424" text-anchor="middle" font-family="Arial" font-size="11" fill="#495668">200</text>
+<line x1="78" y1="90" x2="78" y2="400" stroke="#637386"/>
+<text x="500" y="463" text-anchor="middle" font-family="Arial" font-size="12" fill="#495668">Completed Epoch</text>
+<text transform="translate(20,237.5) rotate(-90)" text-anchor="middle" font-family="Arial" font-size="12" fill="#495668">Logged loss</text>
+<polyline points="78.00,113.23 96.16,113.75 114.33,126.06 132.49,110.28 150.65,123.49 168.82,123.92 186.98,118.76 205.14,134.04 223.31,126.33 241.47,134.41 259.63,131.35 277.80,116.82 295.96,131.63 314.12,129.91 332.29,135.57 350.45,124.28 368.61,129.23 386.78,138.38 404.94,139.91 423.10,119.42 441.27,133.37 459.43,121.18 477.59,131.21 495.76,129.68 513.92,125.75 532.08,124.47 550.24,135.74 568.41,146.45 586.57,144.54 604.73,144.13 622.90,148.11 641.06,135.55 659.22,133.09 677.39,139.07 695.55,138.84 713.71,137.46 731.88,125.73 750.04,142.70 768.20,134.18 786.37,137.80 804.53,131.94 822.69,141.69 840.86,133.27 859.02,144.95 877.18,136.98 895.35,131.04 913.51,136.48 931.67,147.73 949.84,136.46 968.00,133.43" fill="none" stroke="#2467b3" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="78" y1="428" x2="104" y2="428" stroke="#2467b3" stroke-width="3"/>
+<text x="110" y="432" font-family="Arial" font-size="12" fill="#172333">Train loss</text>
+</svg>
