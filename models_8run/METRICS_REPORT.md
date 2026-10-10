@@ -23,3 +23,9 @@ Each model's `results/charts/` contains SVG plots for **Precision/Recall/mAP**, 
 
 **Scope:** validation metrics are not real-world or sealed-test performance. The 5 models are trained under different architecture/data conditions; comparisons require proper controlled evaluation.
 
+
+## Original Run01 (Model 1) diagnostic plots
+
+The following plots were copied byte-for-byte from the Kent Run01 `run` folder (original experiment outputs). They are distinct from the *derived SVG* training-history figures: `model1_yolo26n_synthetic/results/original_charts/` holds `BoxF1_curve.png`, `BoxP_curve.png`, `BoxR_curve.png`, `BoxPR_curve.png`, `confusion_matrix.png`, `confusion_matrix_normalized.png`, and `results.png`. These should **not** be confused with Model 2–5 results.
+
+For Model 2–5, original confusion matrices and confidence-sweep F1/PR plots have not been verified in the final-run folders, so none were invented or copied from unrelated older models.
