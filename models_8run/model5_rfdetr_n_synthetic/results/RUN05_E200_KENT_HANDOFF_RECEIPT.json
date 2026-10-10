@@ -1,0 +1,62 @@
+{
+  "architecture": "RF-DETR Nano",
+  "classes": [
+    "leaf_algal",
+    "leaf_blight",
+    "leaf_colletotrichum",
+    "leaf_healthy",
+    "leaf_phomopsis",
+    "leaf_rhizoctonia"
+  ],
+  "completed_epochs": 200,
+  "condition": "V4.1 Synthetic",
+  "created_utc": "2026-10-10T11:56:12.998082+00:00",
+  "dataset_tree_sha256": "66f932ad14497feed7a9d97469f55eb341c1b77bd839a9f7e8e28a3b399d3015",
+  "dataset_zip_sha256": "1b0b8050b6d6a20d544fc6f921fb4d3b4ba9ca5782996e8a68da11c8951b35e2",
+  "files": {
+    "checkpoint_best_ema.pth": {
+      "bytes": 120974435,
+      "md5": "ac08eec6d3ef9401c6804725fc9a68ac",
+      "sha256": "f2912b418819bc6732958f103b07708c95e3bad15219e5cbcc9f0bccda7ef744"
+    },
+    "checkpoint_best_total.pth": {
+      "bytes": 120962819,
+      "md5": "b8e1a776a4abbbf5a13a3623a7d4e654",
+      "sha256": "4345a1f7bb8af91a2d215d63d69f52731f2bc411818e0686970bee1770a0d0a4"
+    },
+    "hparams.yaml": {
+      "bytes": 3,
+      "md5": "8a80554c91d9fca8acb82f023de02f11",
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "last.ckpt": {
+      "bytes": 483442431,
+      "md5": "0291ec102a88eed056b369117b78d7b7",
+      "sha256": "688e6a3c02e506be8b0dd8d8cbec8b98ccabf14666c0a1e40a8c1f51223a0057"
+    },
+    "metrics.csv": {
+      "bytes": 28959,
+      "md5": "300d15880dcd860231717612ea900ea9",
+      "sha256": "5925a4e71f77377d7d83a6667577127bd4c78886abf574927e297e98540e197e"
+    },
+    "training_config.json": {
+      "bytes": 4285,
+      "md5": "1367f4cb46f54785da15de0918c8a192",
+      "sha256": "fae972bdaabc4a67d9e25fdb1e210aebacc128d8eeab42960556586a20a015e7"
+    }
+  },
+  "final_global_step": 10800,
+  "initializer_sha256": "d8d6b9ee57d4d0ed2b1f305163624712a0532cb7bce0c747317984fc5457440d",
+  "note": "Post-e150 best EMA may not be the global best across epochs 1-200. Preserve earlier best EMA.",
+  "parent_checkpoint_e150_sha256": "6fc87f7cc9e4eed9e04d54d638f11efe9bb8b610da39d9e35cbd8b8b90a2a323",
+  "run": "Run05",
+  "runtime": {
+    "gpu": "Tesla T4",
+    "pytorch_lightning": "2.6.6",
+    "rfdetr": "1.11.0",
+    "torch": "2.11.0+cu130",
+    "transformers": "5.17.0"
+  },
+  "status": "E200_COMPLETED",
+  "training_recipe": "same Run05 e150 recipe; local checkpoint_interval changed to 10"
+}
