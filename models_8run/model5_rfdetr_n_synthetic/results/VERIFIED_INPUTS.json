@@ -1,0 +1,14 @@
+{
+  "checkpoint_sha256": "6fc87f7cc9e4eed9e04d54d638f11efe9bb8b610da39d9e35cbd8b8b90a2a323",
+  "classes": [
+    "leaf_algal",
+    "leaf_blight",
+    "leaf_colletotrichum",
+    "leaf_healthy",
+    "leaf_phomopsis",
+    "leaf_rhizoctonia"
+  ],
+  "dataset_tree_sha256": "66f932ad14497feed7a9d97469f55eb341c1b77bd839a9f7e8e28a3b399d3015",
+  "initializer_sha256": "d8d6b9ee57d4d0ed2b1f305163624712a0532cb7bce0c747317984fc5457440d",
+  "recipe": "RUN05_V41_SYNTHETIC_RFDETRN_200"
+}
