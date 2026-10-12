@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="520" viewBox="0 0 1000 520">
+<rect width="1000" height="520" fill="#fff"/>
+<text x="85" y="36" font-family="Arial" font-size="24" font-weight="bold" fill="#222">Run06 E191-E200 — mAP50-95 and mAP50</text>
+<line x1="85" y1="445" x2="955" y2="445" stroke="#dbe1e8"/>
+<text x="70" y="450" text-anchor="end" font-family="Arial" font-size="14">0.0</text>
+<line x1="85" y1="369.6" x2="955" y2="369.6" stroke="#dbe1e8"/>
+<text x="70" y="374.6" text-anchor="end" font-family="Arial" font-size="14">0.2</text>
+<line x1="85" y1="294.2" x2="955" y2="294.2" stroke="#dbe1e8"/>
+<text x="70" y="299.2" text-anchor="end" font-family="Arial" font-size="14">0.4</text>
+<line x1="85" y1="218.8" x2="955" y2="218.8" stroke="#dbe1e8"/>
+<text x="70" y="223.8" text-anchor="end" font-family="Arial" font-size="14">0.6</text>
+<line x1="85" y1="143.39999999999998" x2="955" y2="143.39999999999998" stroke="#dbe1e8"/>
+<text x="70" y="148.39999999999998" text-anchor="end" font-family="Arial" font-size="14">0.8</text>
+<line x1="85" y1="68" x2="955" y2="68" stroke="#dbe1e8"/>
+<text x="70" y="73" text-anchor="end" font-family="Arial" font-size="14">1.0</text>
+<text x="85" y="468" text-anchor="middle" font-family="Arial" font-size="14">191</text>
+<text x="278.3333333333333" y="468" text-anchor="middle" font-family="Arial" font-size="14">193</text>
+<text x="568.3333333333334" y="468" text-anchor="middle" font-family="Arial" font-size="14">196</text>
+<text x="761.6666666666666" y="468" text-anchor="middle" font-family="Arial" font-size="14">198</text>
+<text x="955" y="468" text-anchor="middle" font-family="Arial" font-size="14">200</text>
+<line x1="85" y1="68" x2="85" y2="445" stroke="#566"/>
+<line x1="85" y1="445" x2="955" y2="445" stroke="#566"/>
+<text x="520" y="496" text-anchor="middle" font-family="Arial" font-size="16">Epoch</text>
+<line x1="735" y1="68" x2="773" y2="68" stroke="#187fc2" stroke-width="4"/>
+<text x="781" y="73" font-family="Arial" font-size="15" fill="#222">mAP5095</text>
+<polyline fill="none" stroke="#187fc2" stroke-width="3" points="85.00,255.66 181.67,255.84 278.33,255.58 375.00,255.63 471.67,255.51 568.33,255.24 665.00,255.27 761.67,254.98 858.33,255.09 955.00,255.23"/>
+<line x1="735" y1="94" x2="773" y2="94" stroke="#cb6747" stroke-width="4"/>
+<text x="781" y="99" font-family="Arial" font-size="15" fill="#222">mAP50</text>
+<polyline fill="none" stroke="#cb6747" stroke-width="3" points="85.00,166.80 181.67,167.08 278.33,166.67 375.00,166.53 471.67,166.45 568.33,166.40 665.00,166.64 761.67,165.97 858.33,166.10 955.00,166.25"/>
+<text x="85" y="507" font-family="Arial" font-size="12" fill="#596574">Source: actual RF-DETR metrics.csv validation rows. Epoch range 191-200; historical V4.1 validation, not V4.2.</text>
+</svg>
