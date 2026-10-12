@@ -1,0 +1,45 @@
+{
+  "repo": "JohnyChia/durian_training",
+  "branch": "model-synthetic-and-hybrid",
+  "status": "SEVEN_LFS_OBJECTS_DOWNLOADED_AND_SHA256_VERIFIED",
+  "verified_at_utc": "2026-10-12T21:16:58.002034+00:00",
+  "model05_lineage": "V4_1_SYNTHETIC_ONLY",
+  "model06_lineage": "V4_1_HYBRID_EXPOSURE_BIASED",
+  "files": [
+    {
+      "path": "models_8run/model5_rfdetr_n_synthetic/weights/checkpoint_best_ema.pth",
+      "size": 120974435,
+      "sha256": "f2912b418819bc6732958f103b07708c95e3bad15219e5cbcc9f0bccda7ef744"
+    },
+    {
+      "path": "models_8run/model5_rfdetr_n_synthetic/weights/checkpoint_best_total.pth",
+      "size": 120962819,
+      "sha256": "4345a1f7bb8af91a2d215d63d69f52731f2bc411818e0686970bee1770a0d0a4"
+    },
+    {
+      "path": "models_8run/model5_rfdetr_n_synthetic/weights/last_ema.pth",
+      "size": 120969199,
+      "sha256": "f3210262b886fd531aa6e4d22eb0201ced9f8eb6b4b1fac3fa919750e13e7c3c"
+    },
+    {
+      "path": "models_8run/model5_rfdetr_n_synthetic/checkpoints/last.ckpt",
+      "size": 483442431,
+      "sha256": "688e6a3c02e506be8b0dd8d8cbec8b98ccabf14666c0a1e40a8c1f51223a0057"
+    },
+    {
+      "path": "models_8run/model6_rfdetr_n_hybrid/weights/checkpoint_best_ema.pth",
+      "size": 120974499,
+      "sha256": "fb2bb0775704c5ccc4bbe01b8dbe776edf23ce5e6a3073ef797a120668ce2203"
+    },
+    {
+      "path": "models_8run/model6_rfdetr_n_hybrid/weights/checkpoint_best_total.pth",
+      "size": 120962819,
+      "sha256": "0a4bd4e420a28a1e39ffb68ef006defe80228372f4796a9b846dd6e5cc61a1d0"
+    },
+    {
+      "path": "models_8run/model6_rfdetr_n_hybrid/checkpoints/last.ckpt",
+      "size": 483442431,
+      "sha256": "203dff45b9906d506461d2c060e2feb4fa603c67e326ec95b0308f1591fe21ba"
+    }
+  ]
+}
