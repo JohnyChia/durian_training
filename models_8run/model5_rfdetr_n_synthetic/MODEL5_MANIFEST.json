@@ -1,0 +1,49 @@
+{
+  "model": "Model 5",
+  "run": "Run05",
+  "architecture": "RF-DETR Nano",
+  "dataset": "V4.1 Synthetic Only",
+  "completed_epochs": 200,
+  "files": {
+    "checkpoints/last.ckpt": {
+      "bytes": 483442431,
+      "sha256": "688e6a3c02e506be8b0dd8d8cbec8b98ccabf14666c0a1e40a8c1f51223a0057"
+    },
+    "results/RUN05_E200_KENT_HANDOFF_RECEIPT.json": {
+      "bytes": 2261,
+      "sha256": "5f5e30e5fccdec1671a260c461e862034f248e0aedfd4cce22bc6fbd2cac96ec"
+    },
+    "results/VERIFIED_INPUTS.json": {
+      "bytes": 475,
+      "sha256": "f667812fbe3af225c6ef6a8a0000a9041555a960ffbfecdcc1ba303576212575"
+    },
+    "results/events.out.tfevents.1791626622.62342515228b.549.0": {
+      "bytes": 74060,
+      "sha256": "e7c3accb135219acd47e070b891555122e72897d546915ac6c52916249b02afb"
+    },
+    "results/hparams.yaml": {
+      "bytes": 3,
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "results/metrics.csv": {
+      "bytes": 28959,
+      "sha256": "5925a4e71f77377d7d83a6667577127bd4c78886abf574927e297e98540e197e"
+    },
+    "results/training_config.json": {
+      "bytes": 4285,
+      "sha256": "fae972bdaabc4a67d9e25fdb1e210aebacc128d8eeab42960556586a20a015e7"
+    },
+    "weights/checkpoint_best_ema.pth": {
+      "bytes": 120974435,
+      "sha256": "f2912b418819bc6732958f103b07708c95e3bad15219e5cbcc9f0bccda7ef744"
+    },
+    "weights/checkpoint_best_total.pth": {
+      "bytes": 120962819,
+      "sha256": "4345a1f7bb8af91a2d215d63d69f52731f2bc411818e0686970bee1770a0d0a4"
+    },
+    "weights/last_ema.pth": {
+      "bytes": 120969199,
+      "sha256": "f3210262b886fd531aa6e4d22eb0201ced9f8eb6b4b1fac3fa919750e13e7c3c"
+    }
+  }
+}
