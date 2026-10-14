@@ -1,0 +1,34 @@
+{
+  "run": "run02_yolo26n_hybrid_v42",
+  "epochs_completed": 200,
+  "source_e180_sha256": "9f9f77e5021a230ffd8a850cd6815a63ccb263bf6b5910e892f88f6ed67aa289",
+  "dataset_archive_sha256": "19923e8d08acab1b66de2c0e3b94a56abaabf7051e8d462e929070daf3958834",
+  "backup_created_utc": "2026-10-14T10:44:16.082264+00:00",
+  "files": {
+    "last.pt": {
+      "size": 5411205,
+      "md5": "05536c4da85996aa93e3b661504176a6",
+      "sha256": "3d65f2e2a9dd154f50b8ab8c1d5490972eafa1ca0acf78ff69573b83f22c0c31"
+    },
+    "best.pt": {
+      "size": 5411141,
+      "md5": "13cfbf88c5c42e9f2587a0fb4d03455c",
+      "sha256": "85cb301538b2c8ccb06b714337391698771afa569efce93c448415e845b428fd"
+    },
+    "results.csv": {
+      "size": 25558,
+      "md5": "4df713e9c77fe0d4686b5e7cf1833d73",
+      "sha256": "20b8c7b6fe177d9356cc39f87d6f9374c3132f09b83a7a6e533bbcbf28537f84"
+    },
+    "V4_2_RUN02_RUNTIME_DATASET.yaml": {
+      "size": 217,
+      "md5": "a5b2a3e508b74ce9255624113a13ddc1",
+      "sha256": "fa09d155850b739aabd4bd811891d38245b60f6ec1b0c52d70a03de8ef8a0579"
+    },
+    "args.yaml": {
+      "size": 1876,
+      "md5": "ea0c71c711762e53704383aa304e8340",
+      "sha256": "85dbaced6e72dc03da0e4d85aeca568e7aaf35bd14a3fa1eadcbc8e2a922382a"
+    }
+  }
+}
