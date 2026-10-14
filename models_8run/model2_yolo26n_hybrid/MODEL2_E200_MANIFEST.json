@@ -1,0 +1,33 @@
+{
+  "run": "run02_yolo26n_hybrid_v42",
+  "model_number": 2,
+  "epochs_completed": 200,
+  "model_files": {
+    "best.pt": {
+      "bytes": 5411141,
+      "sha256": "85cb301538b2c8ccb06b714337391698771afa569efce93c448415e845b428fd"
+    },
+    "weights/epoch180.pt": {
+      "bytes": 20799173,
+      "sha256": "d9a424d96551e4e468abb747bd01063d78720ce46bb835ca8393de2cfb9df13d"
+    },
+    "weights/epoch185.pt": {
+      "bytes": 20799813,
+      "sha256": "e72d810e0a581eefda460320e1231c0c7640375c70d70e0bafdcd27d54b3ca23"
+    },
+    "weights/epoch190.pt": {
+      "bytes": 20800453,
+      "sha256": "23b8a7ad0b4d7364b86739f4c4e034e870d30da1a9a7b0312cb0c166fe21da74"
+    },
+    "weights/epoch195.pt": {
+      "bytes": 20801093,
+      "sha256": "fc7f0319625a4592569d658f2cb52a8d279a1eae551a3f0169e010aa42dca52e"
+    },
+    "weights/last.pt": {
+      "bytes": 5411205,
+      "sha256": "3d65f2e2a9dd154f50b8ab8c1d5490972eafa1ca0acf78ff69573b83f22c0c31"
+    }
+  },
+  "results_directory": "results",
+  "github_branch": "model-synthetic-and-hybrid"
+}
