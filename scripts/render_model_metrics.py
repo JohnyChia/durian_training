@@ -16,9 +16,7 @@ import matplotlib.pyplot as plt
 ROOT = Path(__file__).resolve().parents[1]
 MODELS = [
     ('model1_yolo26n_synthetic', 'Model 1 | YOLO26n | Synthetic', 'results.csv'),
-    ('model2_yolo26n_hybrid', 'Model 2 | YOLO26n | Hybrid', 'results.csv'),
     ('model3_yolo26n_p2_synthetic', 'Model 3 | YOLO26n-P2 | Synthetic', 'results.csv'),
-    ('model4_yolo26n_p2_hybrid', 'Model 4 | YOLO26n-P2 | Hybrid', 'results.csv'),
     ('model5_rfdetr_n_synthetic', 'Model 5 | RF-DETR Nano | Synthetic', 'metrics.csv'),
 ]
 

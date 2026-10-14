@@ -1,80 +1,42 @@
-name: Upload completed Run 01 and Run 02 models
+name: Verify preserved Synthetic model artifacts
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - model-synthetic-and-hybrid
     paths:
+      - models_8run/model1_yolo26n_synthetic/**
+      - models_8run/model3_yolo26n_p2_synthetic/**
+      - models_8run/model5_rfdetr_n_synthetic/**
       - .github/workflows/upload-model12.yml
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  upload-models:
+  verify-synthetic-models:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout model branch
+      - name: Checkout model branch with LFS artifacts
         uses: actions/checkout@v4
         with:
           ref: model-synthetic-and-hybrid
-          fetch-depth: 0
+          fetch-depth: 1
+          lfs: true
 
-      - name: Install Git LFS and gdown
+      - name: Verify preserved inference checkpoints
         shell: bash
         run: |
           set -euo pipefail
-          git lfs install
-          python -m pip install --quiet gdown
-
-      - name: Download verified final models from Google Drive
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p models_8run/model1_yolo26n_synthetic
-          mkdir -p models_8run/model2_yolo26n_hybrid
-
-          gdown 1_YSu-kzkYI6W2VhWjnzfZiMC3zxi_bG- -O models_8run/model1_yolo26n_synthetic/best.pt
-
-          gdown 1BFjJMmwkTeZizoW6VpDMGoV2wOqUNEj- -O models_8run/model2_yolo26n_hybrid/best.pt
-
-      - name: Verify model files
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          test "$(stat -c%s models_8run/model1_yolo26n_synthetic/best.pt)" = "5410757"
-          test "$(stat -c%s models_8run/model2_yolo26n_hybrid/best.pt)" = "5411269"
-
           echo "b7e221be1716737941f9ac0bfeab832e6fce67f405a1d0f133287ce84e2b4ef0  models_8run/model1_yolo26n_synthetic/best.pt" | sha256sum -c -
-          echo "803ede7ce9451bd3e910358f176798861e549e3c139fe78e67023c6317e5319b  models_8run/model2_yolo26n_hybrid/best.pt" | sha256sum -c -
+          echo "a8ae50bfea646f34849961be3204b9860dcf7c7e87de159498c7b59872fd369d  models_8run/model3_yolo26n_p2_synthetic/best.pt" | sha256sum -c -
+          echo "f2912b418819bc6732958f103b07708c95e3bad15219e5cbcc9f0bccda7ef744  models_8run/model5_rfdetr_n_synthetic/weights/checkpoint_best_ema.pth" | sha256sum -c -
 
-      - name: Write model manifest
-        shell: bash
-        run: |
-          cat > models_8run/README.md <<'EOF'
-          # Completed 8-run Study Models
-
-          This branch stores completed final model artifacts separately from the training/code branch.
-
-          | Run | Architecture | Condition | Artifact |
-          | --- | --- | --- | --- |
-          | 01 | YOLO26n | Synthetic-only | `model1_yolo26n_synthetic/best.pt` |
-          | 02 | YOLO26n | Hybrid | `model2_yolo26n_hybrid/best.pt` |
-
-          Run 03 and later models should only be added after their controlled training run is complete.
-          EOF
-
-      - name: Commit model artifacts
+      - name: Reject historical Hybrid directories
         shell: bash
         run: |
           set -euo pipefail
-          git config user.name "JohnyChia"
-          git config user.email "157824463+JohnyChia@users.noreply.github.com"
-          git add models_8run
-          if git diff --cached --quiet; then
-            echo "Model files already present; nothing to commit."
-            exit 0
-          fi
-          git commit -m "Add completed Run 01 and Run 02 models"
-          git push origin model-synthetic-and-hybrid
+          test ! -e models_8run/model2_yolo26n_hybrid
+          test ! -e models_8run/model4_yolo26n_p2_hybrid
+          test ! -e models_8run/model6_rfdetr_n_hybrid
