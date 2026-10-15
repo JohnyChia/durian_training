@@ -1,0 +1,40 @@
+{
+  "experiment": "Model4 YOLO26n-P2 Hybrid V4.2 Revised",
+  "status": "E200 training completed",
+  "epochs": 200,
+  "train_images": 1425,
+  "val_images": 399,
+  "resume_from_e155": true,
+  "training_config": {
+    "nbs": 16,
+    "patience": 0,
+    "batch": 4,
+    "imgsz": 640,
+    "seed": 20260917
+  },
+  "results_history": {
+    "E1_E95_rows": 95,
+    "E96_E155_rows": 60,
+    "E156_E200_rows": 45,
+    "full_history_rows": 200,
+    "continuous": true
+  },
+  "highest_recorded_map50_95": 0.56938,
+  "highest_recorded_metric_epoch": 167,
+  "post_handoff_stage_checkpoint_epoch": 167,
+  "post_handoff_stage_map50_95": 0.56938,
+  "original_e93_weight_missing": true,
+  "model_files": {
+    "last_pt_sha256": "5e2063293626970095038a2e9007141869760b134836f261b7694e231ac683ee",
+    "stage_best_sha256": "04fa8dc9fa7df9bb238ab42469dee857caedb1c36d2d02bdf252bb9e831bc6f5",
+    "results_sha256": "349235f5ad91c9c73a765afa83fbae951b9b28eb000ac981deaa7078135ef3b5"
+  },
+  "resume_slots": {
+    "A": 200,
+    "B": 195,
+    "A_sha256": "2de455864ac58ce85d07bfb8600d113b752ed3a0dbe3a4988e1920e992a1cc44",
+    "B_sha256": "36de345c41be7ae855899053d4344c7577f94d1f13f29206ecf73c143647985a"
+  },
+  "kent_handoff_folder_id": "15kWa3i7urTFnwU5nDQ6G78UtJpRh0ajO",
+  "gitHub_uploaded": false
+}

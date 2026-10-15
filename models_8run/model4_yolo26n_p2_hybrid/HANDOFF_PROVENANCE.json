@@ -1,0 +1,11 @@
+{
+  "source_epoch": 155,
+  "source_file": "run04/resume_e095_to_e200_20261015_075354/rotating_two_checkpoint_slots/checkpoint_slot_B.pt",
+  "source_sha256": "17923a3fc6d6102ce51b5aea44d9485d42452aea2adfda9ffd397dd2a8b5db44",
+  "dataset_sha256": "19923e8d08acab1b66de2c0e3b94a56abaabf7051e8d462e929070daf3958834",
+  "nbs": 16,
+  "patience": 0,
+  "historical_best_e93_map": 0.55805,
+  "historical_e93_weights_missing": true,
+  "cloud_id": "15kWa3i7urTFnwU5nDQ6G78UtJpRh0ajO"
+}
