@@ -1,0 +1,56 @@
+{
+  "run": "Run06",
+  "model": "RF-DETR Nano",
+  "dataset": "V4.2 Hybrid",
+  "completed_epochs": 200,
+  "source": "Kent Run06 final_e200",
+  "historical_metrics_complete": false,
+  "historical_global_best_verified": false,
+  "local_runtime_png_count": 0,
+  "files": {
+    "README.md": {
+      "sha256": "a0114420c640b745ac3fa9abfbfec9d558fe018e26387cc8d66e352ef27a272b",
+      "bytes": 1185
+    },
+    "weights/last_ema.pth": {
+      "sha256": "56180dfd84b22695ee1363403c4c08e483a2836089319791332191ee5611ada5",
+      "bytes": 120969071
+    },
+    "weights/checkpoint_best_total.pth": {
+      "sha256": "c9e05e3f894e54ca9c4a1b565d52e811aa64a13bc2edd23babab78d746ac4478",
+      "bytes": 120962691
+    },
+    "weights/checkpoint_best_ema.pth": {
+      "sha256": "b333edab9b69d7c85c6405fa468ad767c820adbe12825bcdf661dc5aa069c266",
+      "bytes": 120974371
+    },
+    "results/JOHNY_E200_AUDIT.json": {
+      "sha256": "154f2a139ee695b4b3c2ba41abe47f28085e044b0d1447ff2ab2a84c6f5473c3",
+      "bytes": 1022
+    },
+    "results/hparams.yaml": {
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "bytes": 3
+    },
+    "results/metrics_E196_E200.csv": {
+      "sha256": "41942a9bdaaabba458bb4329abcb1f9c72ab2b0b6b9c85c9f5ad904fdbe01b95",
+      "bytes": 3612
+    },
+    "results/png/precision_recall_E196_E200.png": {
+      "sha256": "ddfb388c0bae6d4609df8095122999c9ea681e3fa1d8d1621084839de35c9b3e",
+      "bytes": 51908
+    },
+    "results/png/f1_E196_E200.png": {
+      "sha256": "7f1af81e6299572b64331e7e2488d7d3f6aad1795146470073595c17dc01639d",
+      "bytes": 74114
+    },
+    "results/png/ema_map_E196_E200.png": {
+      "sha256": "42f18812a531d6a4d026276b17cf586aba7f376af6e1e6ca4211c309f6adadd1",
+      "bytes": 50896
+    },
+    "results/png/loss_E196_E200.png": {
+      "sha256": "da6523c75b07e8f9fcb35a9c0376e8560ba35e8a439f55499499bc1e8f950cc8",
+      "bytes": 69230
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "model": "Model6 RF-DETR Nano Hybrid V4.2",
+  "worker": "johnychia731@gmail.com",
+  "source_checkpoint": "kent_slot_A.ckpt",
+  "source_id": "1XeCqS40j4n1VefVAnXncHRns7JKi2Y4_",
+  "resume_step": 17550,
+  "completed_epoch": 200,
+  "artifacts": [
+    {
+      "name": "last_ema.pth",
+      "bytes": 120969071,
+      "sha256": "56180dfd84b22695ee1363403c4c08e483a2836089319791332191ee5611ada5"
+    },
+    {
+      "name": "checkpoint_best_total.pth",
+      "bytes": 120962691,
+      "sha256": "c9e05e3f894e54ca9c4a1b565d52e811aa64a13bc2edd23babab78d746ac4478"
+    },
+    {
+      "name": "hparams.yaml",
+      "bytes": 3,
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    {
+      "name": "metrics.csv",
+      "bytes": 3612,
+      "sha256": "41942a9bdaaabba458bb4329abcb1f9c72ab2b0b6b9c85c9f5ad904fdbe01b95"
+    },
+    {
+      "name": "checkpoint_best_ema.pth",
+      "bytes": 120974371,
+      "sha256": "b333edab9b69d7c85c6405fa468ad767c820adbe12825bcdf661dc5aa069c266"
+    }
+  ]
+}
